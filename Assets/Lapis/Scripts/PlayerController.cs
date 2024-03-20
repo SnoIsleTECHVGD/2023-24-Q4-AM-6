@@ -33,5 +33,5 @@ public class PlayerController : MonoBehaviour
         }
         body2D.velocity = new Vector2(Mathf.Clamp(body2D.velocity.x, -maxspeed, maxspeed), Mathf.Clamp(body2D.velocity.y, -jumpspeed, jumpspeed));
     }
-    //yoo time to code minesweeper
+    //yoo time to code minesweeper (no)
 }

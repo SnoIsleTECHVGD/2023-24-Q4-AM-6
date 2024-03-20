@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 4543677050948172806}
   - component: {fileID: 7541461197027778702}
   - component: {fileID: 2587360220011699580}
+  - component: {fileID: 3919838530683762408}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -210,3 +211,18 @@ MonoBehaviour:
   movespeed: 6
   jumpspeed: 6
   maxspeed: 6
+--- !u!114 &3919838530683762408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892430339821995385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf951c8348e3a940b5d3b4f76067244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 2587360220011699580}
+  body2D: {fileID: 7541461197027778702}
+  button: 323
