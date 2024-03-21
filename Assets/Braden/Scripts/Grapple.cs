@@ -31,7 +31,10 @@ public class Grapple : MonoBehaviour
         if (isGrappling == true || canGrapple == false)
             return;
 
-        isGrappling = true;
+        //isGrappling = true;
+
+        Vector2 direction = GetMouseDirection();
+        //Instantiate()
 
         print("grapple");
     }
@@ -42,5 +45,16 @@ public class Grapple : MonoBehaviour
             return;
 
         isGrappling = false;
+    }
+
+    // Helpers
+
+    Vector2 GetMouseDirection()
+    {
+        Vector3 dir = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
+        dir = Camera.main.ScreenToWorldPoint(dir);
+        dir = dir - transform.position;
+
+        return new Vector2(dir.x, dir.y);
     }
 }
