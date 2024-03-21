@@ -13,6 +13,10 @@ public class Grapple : MonoBehaviour
     [SerializeField]
     private KeyCode button;
 
+    [SerializeField]
+    private GameObject grapplePrefab;
+    private GameObject currentGrapple;
+
     // Variables
     private bool canGrapple = true;
     private bool isGrappling = false;
@@ -22,6 +26,12 @@ public class Grapple : MonoBehaviour
     {
         if (Input.GetKeyDown(button))
             Activate();
+
+        if (isGrappling == true)
+        {
+            // Update grapple logic
+
+        }
     }
 
     // Functions
@@ -31,10 +41,14 @@ public class Grapple : MonoBehaviour
         if (isGrappling == true || canGrapple == false)
             return;
 
-        //isGrappling = true;
+        isGrappling = true;
 
         Vector2 direction = GetMouseDirection();
-        //Instantiate()
+
+        currentGrapple = Instantiate(grapplePrefab, transform.parent);
+        currentGrapple.transform.localScale = new Vector3(currentGrapple.transform.localScale.x, 0.5f, 0);
+
+        currentGrapple.transform.LookAt(new Vector3(direction.x, 0, direction.y * -1));
 
         print("grapple");
     }
