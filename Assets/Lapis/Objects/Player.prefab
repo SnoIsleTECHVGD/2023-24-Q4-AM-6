@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 7541461197027778702}
   - component: {fileID: 2587360220011699580}
   - component: {fileID: 3919838530683762408}
+  - component: {fileID: 8136630162560057766}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -160,7 +161,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.002895981, y: -0.0014481544}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -171,7 +172,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9131202, y: 1.0028963}
   m_EdgeRadius: 0
 --- !u!50 &7541461197027778702
 Rigidbody2D:
@@ -209,8 +210,9 @@ MonoBehaviour:
   player: {fileID: 7892430339821995385}
   body2D: {fileID: 7541461197027778702}
   buildup: 5
-  maxspeed: 8
+  maxspeed: 7
   jumpspeed: 6
+  coyotetime: 0.5
   foot: {fileID: 1144943576753191019}
   groundMask:
     serializedVersion: 2
@@ -232,3 +234,29 @@ MonoBehaviour:
   button: 323
   grapplePrefab: {fileID: 2610337673115838187, guid: bebf670aa1d59834d8f1e16dc5c46d5e, type: 3}
   grappleSpeed: 15
+--- !u!61 &8136630162560057766
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892430339821995385}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: ee10398b69c581b4dbbce3c720a63dee, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.007240057}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.89284754}
+  m_EdgeRadius: 0
