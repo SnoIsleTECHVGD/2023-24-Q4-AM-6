@@ -7,9 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject player;
     public Rigidbody2D body2D;
-    public float movespeed;
-    public float jumpspeed;
+    public float buildup;
     public float maxspeed;
+    public float jumpspeed;
 
     //Ground Detect
     [SerializeField]
@@ -31,16 +31,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float buildUpDelta = (buildup * 1000) * Time.deltaTime;
         //movement
         if (Input.GetKey(KeyCode.A))
         {
-            body2D.AddForce(Vector2.left * movespeed);
+            body2D.AddForce(Vector2.left * buildUpDelta);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            body2D.AddForce(Vector2.right * movespeed);
+            body2D.AddForce(Vector2.right * buildUpDelta);
         }
         //jump
+        CheckGrounding();
         if (isJumping == true)
         {
             jumpTime += Time.deltaTime;

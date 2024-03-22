@@ -208,9 +208,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7892430339821995385}
   body2D: {fileID: 7541461197027778702}
-  movespeed: 6
+  buildup: 6
+  maxspeed: 10
   jumpspeed: 6
-  maxspeed: 6
   foot: {fileID: 1144943576753191019}
   groundMask:
     serializedVersion: 2
