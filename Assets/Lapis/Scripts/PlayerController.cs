@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float buildup;
     public float maxspeed;
     public float jumpspeed;
+    public float coyotetime;
 
     //Ground Detect
     [SerializeField]
@@ -52,7 +53,7 @@ public class PlayerController : MonoBehaviour
                 isJumping = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Space) && isJumping == false)
+        if (Input.GetKeyDown(KeyCode.Space) && isJumping == false && timeSinceGrounded <= coyotetime)
         {
             isJumping = true;
             jumpTime = 0;
