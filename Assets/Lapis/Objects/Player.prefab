@@ -231,3 +231,4 @@ MonoBehaviour:
   body2D: {fileID: 7541461197027778702}
   button: 323
   grapplePrefab: {fileID: 2610337673115838187, guid: bebf670aa1d59834d8f1e16dc5c46d5e, type: 3}
+  grappleSpeed: 15

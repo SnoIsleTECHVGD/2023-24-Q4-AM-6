@@ -18,6 +18,7 @@ public class Grapple : MonoBehaviour
     [SerializeField]
     private GameObject grapplePrefab;
     private GameObject currentGrapple;
+    private Rigidbody2D grappleBody;
 
     // Variables
     private bool canGrapple = true;
@@ -26,6 +27,9 @@ public class Grapple : MonoBehaviour
 
     // Data
     private float timeToDestroy = 1.5f;
+
+    [SerializeField]
+    private float grappleSpeed = 5;
 
     // Update is called once per frame
     void Update()
@@ -38,7 +42,13 @@ public class Grapple : MonoBehaviour
             // Update grapple logic
             grappleDuration += Time.deltaTime;
 
+            if (grappleDuration > timeToDestroy)
+            {
+                Cancel();
+                return;
+            }
 
+            grappleBody.velocity = grappleBody.transform.up * (100 * grappleSpeed) * Time.deltaTime;// * Time.deltaTime;
         }
     }
 
@@ -55,7 +65,9 @@ public class Grapple : MonoBehaviour
         print("grapple");
 
         currentGrapple = Instantiate(grapplePrefab, transform.position, Quaternion.identity, transform.parent);
-        currentGrapple.transform.localScale = new Vector3(currentGrapple.transform.localScale.x, 0.5f, 0);
+
+        grappleBody = currentGrapple.GetComponent<Rigidbody2D>();
+        grappleBody.transform.localScale = new Vector3(currentGrapple.transform.localScale.x, 0.5f, 0);
 
         // Rotate to Face Mouse
 
@@ -63,9 +75,7 @@ public class Grapple : MonoBehaviour
         diff.Normalize();
 
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        currentGrapple.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
-
-        Destroy(currentGrapple, timeToDestroy);
+        grappleBody.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
     }
 
     void Cancel()
@@ -74,6 +84,9 @@ public class Grapple : MonoBehaviour
             return;
 
         isGrappling = false;
+
+        Destroy(currentGrapple);
+        currentGrapple = null;
     }
 
     // Helpers
