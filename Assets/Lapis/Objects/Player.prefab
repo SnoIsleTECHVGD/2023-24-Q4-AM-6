@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2242980086301050606}
   - component: {fileID: 1144943576753191019}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 2587360220011699580}
   - component: {fileID: 3919838530683762408}
   - component: {fileID: 8136630162560057766}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -233,7 +233,8 @@ MonoBehaviour:
   body2D: {fileID: 7541461197027778702}
   button: 323
   grapplePrefab: {fileID: 2610337673115838187, guid: bebf670aa1d59834d8f1e16dc5c46d5e, type: 3}
-  grappleSpeed: 15
+  timeToDestroy: 0.6
+  grappleSpeed: 20
 --- !u!61 &8136630162560057766
 BoxCollider2D:
   m_ObjectHideFlags: 0

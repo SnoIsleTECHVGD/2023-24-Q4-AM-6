@@ -329,9 +329,9 @@ GameObject:
   - component: {fileID: 1269675952}
   - component: {fileID: 1269675951}
   - component: {fileID: 1269675950}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Roof
-  m_TagString: Untagged
+  m_TagString: Grapple
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

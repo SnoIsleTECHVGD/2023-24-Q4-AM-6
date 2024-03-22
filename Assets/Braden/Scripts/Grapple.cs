@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class Grapple : MonoBehaviour
 {
@@ -19,6 +17,7 @@ public class Grapple : MonoBehaviour
     private GameObject grapplePrefab;
     private GameObject currentGrapple;
     private Rigidbody2D grappleBody;
+    private HookCollide hookCollide;
 
     // Variables
     private bool canGrapple = true;
@@ -26,10 +25,11 @@ public class Grapple : MonoBehaviour
     private float grappleDuration = 0;
 
     // Data
-    private float timeToDestroy = 1.5f;
+    [SerializeField]
+    private float timeToDestroy = 1f;
 
     [SerializeField]
-    private float grappleSpeed = 5;
+    private float grappleSpeed = 15;
 
     // Update is called once per frame
     void Update()
@@ -40,15 +40,30 @@ public class Grapple : MonoBehaviour
         if (isGrappling == true)
         {
             // Update grapple logic
-            grappleDuration += Time.deltaTime;
 
-            if (grappleDuration > timeToDestroy)
+            if (hookCollide.collideState != "Grapple")
             {
-                Cancel();
-                return;
-            }
+                // Grapple has not hit
+                grappleDuration += Time.deltaTime;
 
-            grappleBody.velocity = grappleBody.transform.up * (100 * grappleSpeed) * Time.deltaTime;// * Time.deltaTime;
+                if (grappleDuration > timeToDestroy || hookCollide.collideState == "Wall")
+                {
+                    Cancel();
+                    return;
+                }
+
+                float amount = grappleSpeed * Time.deltaTime;
+
+                // ALTERNATIVE: grappleBody.velocity = grappleBody.transform.up * (amount * 30);
+                grappleBody.transform.Translate(grappleBody.transform.up * (amount / 2), Space.World);
+
+                grappleBody.transform.localScale = new Vector3(grappleBody.transform.localScale.x, grappleBody.transform.localScale.y + amount, 0);
+                
+            } else
+            {
+                // Grapple has hit
+                Cancel();
+            }
         }
     }
 
@@ -62,12 +77,12 @@ public class Grapple : MonoBehaviour
         isGrappling = true;
         grappleDuration = 0;
 
-        print("grapple");
-
-        currentGrapple = Instantiate(grapplePrefab, transform.position, Quaternion.identity, transform.parent);
+        currentGrapple = Instantiate(grapplePrefab, transform.position, Quaternion.identity, transform);
 
         grappleBody = currentGrapple.GetComponent<Rigidbody2D>();
-        grappleBody.transform.localScale = new Vector3(currentGrapple.transform.localScale.x, 0.5f, 0);
+        grappleBody.isKinematic = true;
+
+        hookCollide = currentGrapple.GetComponent<HookCollide>();
 
         // Rotate to Face Mouse
 
@@ -88,16 +103,4 @@ public class Grapple : MonoBehaviour
         Destroy(currentGrapple);
         currentGrapple = null;
     }
-
-    // Helpers
-    /*
-    Vector2 GetMouseDirection()
-    {
-        Vector3 dir = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
-        dir = Camera.main.ScreenToWorldPoint(dir);
-        dir = dir - transform.position;
-
-        return new Vector2(dir.x, dir.y);
-    }
-    */
 }
