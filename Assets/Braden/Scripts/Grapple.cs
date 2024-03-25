@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,9 +16,11 @@ public class Grapple : MonoBehaviour
 
     [SerializeField]
     private GameObject grapplePrefab;
+
     private GameObject currentGrapple;
     private Rigidbody2D grappleBody;
     private HookCollide hookCollide;
+    private LineRenderer grappleLine;
 
     // Variables
     private bool canGrapple = true;
@@ -28,8 +31,8 @@ public class Grapple : MonoBehaviour
     [SerializeField]
     private float timeToDestroy = 1f;
 
-    [SerializeField]
-    private float grappleSpeed = 15;
+    public float grappleSpeed = 15;
+    public float grapplePullSpeed = 1;
 
     // Update is called once per frame
     void Update()
@@ -53,16 +56,38 @@ public class Grapple : MonoBehaviour
                 }
 
                 float amount = grappleSpeed * Time.deltaTime;
-
                 // ALTERNATIVE: grappleBody.velocity = grappleBody.transform.up * (amount * 30);
                 grappleBody.transform.Translate(grappleBody.transform.up * (amount / 2), Space.World);
 
                 grappleBody.transform.localScale = new Vector3(grappleBody.transform.localScale.x, grappleBody.transform.localScale.y + amount, 0);
-                
             } else
             {
                 // Grapple has hit
-                Cancel();
+                //Cancel();
+
+                if (grappleDuration > 0)
+                    grappleDuration = 0;
+                else if (grappleDuration >= 1)
+                    return;
+
+                float amount = Time.deltaTime * grapplePullSpeed;
+
+                grappleDuration += amount;
+
+                Vector3 diff = (grappleBody.transform.position - transform.position).normalized;
+
+                //body2D.constraints = RigidbodyConstraints2D.FreezeAll;
+                body2D.gravityScale = 0;
+                body2D.position = Vector3.Lerp(body2D.position, hookCollide.hitPosition - (diff / 2), grappleDuration);
+
+                grappleBody.transform.Translate(grappleBody.transform.up * -(amount * 2 / 2), Space.World);
+                grappleLine.SetPositions(new Vector3[] { transform.position, grappleBody.transform.position });
+
+                /*grappleBody.transform.localScale = new Vector3(grappleBody.transform.localScale.x,
+                    Mathf.Clamp(grappleBody.transform.localScale.y - (amount * 2), 0, 999), 0);*/
+
+                // Physics2D.Linecast() - USE THIS INSTEAD, with A LINE RENDERER. CAST IN THE DIRECTION OF MOUSE
+                // TOTAL REWORK OF CODE NECESSARY
             }
         }
     }
@@ -78,6 +103,8 @@ public class Grapple : MonoBehaviour
         grappleDuration = 0;
 
         currentGrapple = Instantiate(grapplePrefab, transform.position, Quaternion.identity, transform);
+
+        grappleLine = currentGrapple.GetComponent<LineRenderer>();
 
         grappleBody = currentGrapple.GetComponent<Rigidbody2D>();
         grappleBody.isKinematic = true;

@@ -193,7 +193,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &2587360220011699580
 MonoBehaviour:
@@ -235,6 +235,7 @@ MonoBehaviour:
   grapplePrefab: {fileID: 2610337673115838187, guid: bebf670aa1d59834d8f1e16dc5c46d5e, type: 3}
   timeToDestroy: 0.6
   grappleSpeed: 20
+  grapplePullSpeed: 3
 --- !u!61 &8136630162560057766
 BoxCollider2D:
   m_ObjectHideFlags: 0
