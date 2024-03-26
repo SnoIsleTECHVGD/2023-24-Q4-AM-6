@@ -209,9 +209,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7892430339821995385}
   body2D: {fileID: 7541461197027778702}
-  buildup: 5
-  maxspeed: 7
-  jumpspeed: 6
+  buildup: 4
+  maxspeed: 6
+  jumpspeed: 5
   coyotetime: 0.5
   foot: {fileID: 1144943576753191019}
   groundMask:
