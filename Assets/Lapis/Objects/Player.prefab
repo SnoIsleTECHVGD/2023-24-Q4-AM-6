@@ -213,6 +213,7 @@ MonoBehaviour:
   maxspeed: 6
   jumpspeed: 5
   coyotetime: 0.5
+  grapple: {fileID: 3919838530683762408}
   foot: {fileID: 1144943576753191019}
   groundMask:
     serializedVersion: 2
@@ -233,9 +234,13 @@ MonoBehaviour:
   body2D: {fileID: 7541461197027778702}
   button: 323
   grapplePrefab: {fileID: 2610337673115838187, guid: bebf670aa1d59834d8f1e16dc5c46d5e, type: 3}
-  timeToDestroy: 0.6
-  grappleSpeed: 20
-  grapplePullSpeed: 3
+  canGrapple: 1
+  isGrappling: 0
+  grappleDuration: 0
+  grappleState: 
+  timeToDestroy: 0.8
+  grappleSpeed: 35
+  grapplePullSpeed: 15
 --- !u!61 &8136630162560057766
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -7,10 +7,14 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject player;
     public Rigidbody2D body2D;
+
     public float buildup;
     public float maxspeed;
     public float jumpspeed;
     public float coyotetime;
+
+    [SerializeField]
+    private Grapple grapple;
 
     //Ground Detect
     [SerializeField]
@@ -32,6 +36,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (grapple.grappleState == "Grapple")
+        {
+            body2D.velocity = Vector2.zero;
+            return;
+        }
+
         float buildUpDelta = (buildup * 1000) * Time.deltaTime;
         //movement
         if (Input.GetKey(KeyCode.A))
