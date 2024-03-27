@@ -15,7 +15,7 @@ public class ButtonUI : MonoBehaviour
     [SerializeField]
     private AudioSource exitButton;
 
-    public void Start()
+    void Start()
     {
         buttonPress = GetComponent<AudioSource>();
     }
@@ -33,15 +33,18 @@ public class ButtonUI : MonoBehaviour
         music.Stop();
        
 
-        while (audio.isPlaying)
-        {
-            yield return null;
-        }
+        //while (audio.isPlaying)
+        //{
+        //    yield return null;
+        //}
+
 
         if (Scene == "Quit")
             Application.Quit();
         else 
             SceneManager.LoadScene(Scene);
+
+        yield return null;
 
     }
 
@@ -49,13 +52,13 @@ public class ButtonUI : MonoBehaviour
 
     public void Play()
     {
-        StartCoroutine(GoToScene("Play"));
+        StartCoroutine(GoToScene("Level1"));
     }
 
 
     public void Quit()
     {
-        StartCoroutine(GoToScene("MainMenu"));
+        StartCoroutine(GoToScene("mainmenu"));
     }
 }
 
