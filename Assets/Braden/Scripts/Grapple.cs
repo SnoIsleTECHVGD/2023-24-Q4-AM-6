@@ -19,16 +19,21 @@ public class Grapple : MonoBehaviour
     private GameObject currentGrapple;
     private LineRenderer grappleLine;
 
+
     // Variables
     public bool canGrapple = true;
     public bool isGrappling = false;
 
     public float grappleDuration = 0;
+    private float grappleCooldown = 0;
+
     public string grappleState = "";
 
     // Data
     [SerializeField]
     private float timeToDestroy = 1f;
+    public float grappleCooldownTime = 0.75f;
+
     private Vector3 hitPosition;
 
     public float grappleSpeed = 15;
@@ -53,15 +58,20 @@ public class Grapple : MonoBehaviour
 
             // Check for hit
 
-            if (grappleState == "")
+            if (isGrappling == true && grappleState == "")
                 CheckForGrappleHit();
-        }
+        } else
+            grappleCooldown -= Time.deltaTime;
     }
 
     // OnUpdate
     void CheckForGrappleHit()
     {
-        RaycastHit2D hit = Physics2D.Linecast(grappleLine.GetPosition(0), grappleLine.GetPosition(1), LayerMask.NameToLayer("GrappleHook"));
+        //RaycastHit2D hit = Physics2D.Linecast(grappleLine.GetPosition(0), grappleLine.GetPosition(1), LayerMask.NameToLayer("GrappleHook"));
+        //RaycastHit2D hit = Physics2D.Raycast(grappleLine.GetPosition(1), currentGrapple.transform.up, (grappleSpeed * Time.deltaTime) / 4, LayerMask.NameToLayer("GrappleHook"));
+        RaycastHit2D hit = Physics2D.BoxCast(grappleLine.GetPosition(1),
+            new Vector2(grappleLine.startWidth, grappleLine.startWidth), currentGrapple.transform.localEulerAngles.z,
+            currentGrapple.transform.up, Time.deltaTime, LayerMask.NameToLayer("GrappleHook"));
 
         if (hit)
         {
@@ -103,10 +113,11 @@ public class Grapple : MonoBehaviour
             grappleLine.SetPositions(new Vector3[] { body2D.position, hitPosition });
         } 
         else
-        {
             body2D.position = goal;
-            grappleLine.enabled = false;
 
+        if (Input.GetKey(KeyCode.Space))
+        {
+            body2D.AddForce(Vector2.up * controller.jumpspeed, ForceMode2D.Impulse);
             Cancel();
         }
     }
@@ -115,8 +126,8 @@ public class Grapple : MonoBehaviour
 
     void Activate()
     {
-        if (isGrappling == true || canGrapple == false)
-            return;
+        if (isGrappling == true || canGrapple == false || grappleCooldown > 0)
+        return;
 
         isGrappling = true;
         grappleDuration = 0;
@@ -140,6 +151,7 @@ public class Grapple : MonoBehaviour
         if (isGrappling == false)
             return;
 
+        grappleCooldown = grappleCooldownTime;
         isGrappling = false;
         grappleState = "";
 

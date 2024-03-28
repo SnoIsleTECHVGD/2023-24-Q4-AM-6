@@ -560,9 +560,29 @@ PrefabInstance:
       propertyPath: targetJoint2D
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4543677050948172806, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543677050948172806, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7892430339821995385, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136630162560057766, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136630162560057766, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884515326946394435, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
