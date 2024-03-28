@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private Grapple grapple;
+    [SerializeField]
+    private Dash dash;
 
     //Ground Detect
     [SerializeField]
@@ -41,9 +44,12 @@ public class PlayerController : MonoBehaviour
             body2D.velocity = Vector2.zero;
             return;
         }
+        else if (dash.isDashing == true)
+            return;
 
         float buildUpDelta = (buildup * 1000) * Time.deltaTime;
-        //movement
+
+        // Left-Right Movement
         if (Input.GetKey(KeyCode.A))
         {
             body2D.AddForce(Vector2.left * buildUpDelta);
@@ -52,8 +58,10 @@ public class PlayerController : MonoBehaviour
         {
             body2D.AddForce(Vector2.right * buildUpDelta);
         }
-        //jump
+
+        // Jumping
         CheckGrounding();
+
         if (isJumping == true)
         {
             jumpTime += Time.deltaTime;
@@ -63,15 +71,18 @@ public class PlayerController : MonoBehaviour
                 isJumping = false;
             }
         }
+
         if (Input.GetKeyDown(KeyCode.Space) && isJumping == false && timeSinceGrounded <= coyotetime)
         {
             isJumping = true;
             jumpTime = 0;
             body2D.AddForce(Vector2.up * jumpspeed, ForceMode2D.Impulse);
         }
-        //speed clamp
+
+        // Speed Clamp
         body2D.velocity = new Vector2(Mathf.Clamp(body2D.velocity.x, -maxspeed, maxspeed), Mathf.Clamp(body2D.velocity.y, -jumpspeed, jumpspeed));
     }
+
     public void CheckGrounding()
     {
         RaycastHit2D[] cast = new RaycastHit2D[1];

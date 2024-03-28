@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 2587360220011699580}
   - component: {fileID: 3919838530683762408}
   - component: {fileID: 8136630162560057766}
+  - component: {fileID: 2094906994732107040}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -214,6 +215,7 @@ MonoBehaviour:
   jumpspeed: 5
   coyotetime: 0.5
   grapple: {fileID: 3919838530683762408}
+  dash: {fileID: 2094906994732107040}
   foot: {fileID: 1144943576753191019}
   groundMask:
     serializedVersion: 2
@@ -232,6 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 2587360220011699580}
   body2D: {fileID: 7541461197027778702}
+  dash: {fileID: 2094906994732107040}
   button: 323
   grapplePrefab: {fileID: 2610337673115838187, guid: bebf670aa1d59834d8f1e16dc5c46d5e, type: 3}
   canGrapple: 1
@@ -240,7 +243,7 @@ MonoBehaviour:
   grappleState: 
   timeToDestroy: 0.5
   grappleCooldownTime: 0.4
-  grappleSpeed: 50
+  grappleSpeed: 60
   grapplePullSpeed: 40
 --- !u!61 &8136630162560057766
 BoxCollider2D:
@@ -268,3 +271,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.89284754}
   m_EdgeRadius: 0
+--- !u!114 &2094906994732107040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892430339821995385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b798ecc8603dd3b40972f79e5f812dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 2587360220011699580}
+  body2D: {fileID: 7541461197027778702}
+  button: 304
+  isDashing: 0
+  canDash: 1
+  dashTime: 0.3
+  dashSpeed: 12

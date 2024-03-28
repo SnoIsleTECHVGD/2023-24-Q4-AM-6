@@ -12,6 +12,9 @@ public class Grapple : MonoBehaviour
     private Rigidbody2D body2D;
 
     [SerializeField]
+    private Dash dash;
+
+    [SerializeField]
     private KeyCode button;
 
     [SerializeField]
@@ -29,7 +32,7 @@ public class Grapple : MonoBehaviour
 
     public string grappleState = "";
 
-    // Data
+    // Constants
     [SerializeField]
     private float timeToDestroy = 1f;
     public float grappleCooldownTime = 0.75f;
@@ -47,6 +50,12 @@ public class Grapple : MonoBehaviour
 
         if (isGrappling == true)
         {
+            if (dash.isDashing == true)
+            {
+                Cancel();
+                return;
+            }
+
             grappleDuration += Time.deltaTime;
 
             // Update grapple logic
@@ -126,8 +135,8 @@ public class Grapple : MonoBehaviour
 
     void Activate()
     {
-        if (isGrappling == true || canGrapple == false || grappleCooldown > 0)
-        return;
+        if (isGrappling == true || canGrapple == false || grappleCooldown > 0 || dash.isDashing == true)
+            return;
 
         isGrappling = true;
         grappleDuration = 0;
