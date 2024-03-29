@@ -241,11 +241,11 @@ MonoBehaviour:
   isGrappling: 0
   grappleDuration: 0
   grappleState: 
-  timeToDestroy: 0.5
+  timeToDestroy: 0.45
   grappleCooldownTime: 0.4
   jumpPower: 0
-  grappleSpeed: 60
-  grapplePullSpeed: 40
+  grappleSpeed: 55
+  grapplePullSpeed: 30
 --- !u!61 &8136630162560057766
 BoxCollider2D:
   m_ObjectHideFlags: 0
