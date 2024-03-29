@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 02e9a8c6ac9f0d444b4bc7dd23aa5373
+guid: 529f7aea94486004f9e2372cc36a8706
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -131,7 +131,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FloorInsideCornerTile_0
+      name: FloorAllCornersTiles_0
       rect:
         serializedVersion: 2
         x: 0
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 353429d6735d90846b2820f341274832
-      internalID: -981987414
+      spriteID: 1cc41b83001ae83489b8a0ddb4bf08b9
+      internalID: -1802374922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FloorInsideCornerTile_1
+      name: FloorAllCornersTiles_1
       rect:
         serializedVersion: 2
         x: 16
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb89a74fa57638b4fa8056514d672557
-      internalID: 736081698
+      spriteID: 9b592b5c6b2adf54d847fe4ab97ed5d1
+      internalID: 252736873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FloorInsideCornerTile_2
+      name: FloorAllCornersTiles_2
       rect:
         serializedVersion: 2
         x: 0
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 209f0b077b02f884c928f45827197b0b
-      internalID: 883185955
+      spriteID: 042dbc89240bae848a274bfe9e174a63
+      internalID: 2034490339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FloorInsideCornerTile_3
+      name: FloorAllCornersTiles_3
       rect:
         serializedVersion: 2
         x: 16
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9735290b51478364a9ab719a9580864a
-      internalID: 615002171
+      spriteID: 5bcae5f57a523514b994968eb5a7cf90
+      internalID: -1544874470
       vertices: []
       indices: 
       edges: []
@@ -225,10 +225,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FloorInsideCornerTile_2: 883185955
-      FloorInsideCornerTile_3: 615002171
-      FloorInsideCornerTile_1: 736081698
-      FloorInsideCornerTile_0: -981987414
+      FloorAllCornersTiles_1: 252736873
+      FloorAllCornersTiles_3: -1544874470
+      FloorAllCornersTiles_0: -1802374922
+      FloorAllCornersTiles_2: 2034490339
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
