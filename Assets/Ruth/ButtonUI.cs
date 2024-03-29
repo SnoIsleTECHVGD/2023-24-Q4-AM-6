@@ -60,6 +60,11 @@ public class ButtonUI : MonoBehaviour
     {
         StartCoroutine(GoToScene("mainmenu"));
     }
+
+    public void Credits()
+    {
+        StartCoroutine(GoToScene("CreditsScene"));
+    }
 }
 
 
