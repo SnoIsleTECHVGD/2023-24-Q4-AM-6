@@ -25,7 +25,7 @@ public class Dash : MonoBehaviour
     // Constants
     [SerializeField]
     private float dashTime = 0.5f;
-    public float dashCooldownTime = 0.75f;
+    public float dashCooldownTime = 1.25f;
 
     [SerializeField]
     private float dashSpeed = 10;
@@ -54,17 +54,24 @@ public class Dash : MonoBehaviour
         isDashing = true;
         dashLength = dashTime;
 
+        direction = Vector2.zero;
+
+        if (Input.GetKey(KeyCode.W))
+            direction += (Vector2.up * dashSpeed);
+        if (Input.GetKey(KeyCode.S))
+            direction += (Vector2.down * dashSpeed);
         if (Input.GetKey(KeyCode.A))
-            direction = Vector2.left;
-        else if (Input.GetKey(KeyCode.D))
-            direction = Vector2.right;
-        else
-            direction = Vector2.up;
+            direction += (Vector2.left * dashSpeed);
+        if (Input.GetKey(KeyCode.D))
+            direction += (Vector2.right * dashSpeed);
+
+        if (direction == Vector2.zero)
+            direction = (Vector2.up * dashSpeed);
 
         body2D.gravityScale = 0f;
 
         body2D.velocity = Vector2.zero;
-        body2D.AddForce(direction * dashSpeed, ForceMode2D.Impulse);
+        body2D.AddForce(direction, ForceMode2D.Impulse);
     }
 
     public void Cancel()

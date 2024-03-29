@@ -289,4 +289,5 @@ MonoBehaviour:
   isDashing: 0
   canDash: 1
   dashTime: 0.3
+  dashCooldownTime: 1.25
   dashSpeed: 12
