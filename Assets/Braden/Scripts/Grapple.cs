@@ -36,6 +36,7 @@ public class Grapple : MonoBehaviour
     [SerializeField]
     private float timeToDestroy = 1f;
     public float grappleCooldownTime = 0.75f;
+    public float jumpPower = 5;
 
     private Vector3 hitPosition;
 
@@ -126,7 +127,7 @@ public class Grapple : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
-            body2D.AddForce(Vector2.up * controller.jumpspeed, ForceMode2D.Impulse);
+            body2D.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             Cancel();
         }
     }

@@ -243,6 +243,7 @@ MonoBehaviour:
   grappleState: 
   timeToDestroy: 0.5
   grappleCooldownTime: 0.4
+  jumpPower: 0
   grappleSpeed: 60
   grapplePullSpeed: 40
 --- !u!61 &8136630162560057766
@@ -289,5 +290,5 @@ MonoBehaviour:
   isDashing: 0
   canDash: 1
   dashTime: 0.3
-  dashCooldownTime: 1.25
+  dashCooldownTime: 1.6
   dashSpeed: 12
