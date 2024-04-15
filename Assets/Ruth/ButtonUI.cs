@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -58,7 +57,7 @@ public class ButtonUI : MonoBehaviour
 
     public void Quit()
     {
-        StartCoroutine(GoToScene("mainmenu"));
+        StartCoroutine(GoToScene("Quit"));
     }
 
     public void Credits()
@@ -70,5 +69,5 @@ public class ButtonUI : MonoBehaviour
 
 
 
-//      skibidi!!!!!!!!!!!!!
+//      skibidi my friend!!!!!!!!!!!!!
 
