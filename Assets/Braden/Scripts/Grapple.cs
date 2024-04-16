@@ -46,7 +46,7 @@ public class Grapple : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(button))
+        if (Input.GetKeyDown(button) && Time.timeScale != 0)
             Activate();
 
         if (isGrappling == true)

@@ -215,10 +215,34 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 197495497098821141, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1236198242497814938, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1878469459}
+    - target: {fileID: 1371446614582681787, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507967302947009590, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631763056890278775, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746303889314070051, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746303889323507783, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8578804526924167153, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
       propertyPath: m_Name
       value: Main Camera
