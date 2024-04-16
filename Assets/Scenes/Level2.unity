@@ -6745,7 +6745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3886527138199164521, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.42
+      value: -2.6
       objectReference: {fileID: 0}
     - target: {fileID: 3886527138199164521, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12478,10 +12478,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 794554727}
-    - target: {fileID: 1236198242497814938, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
-      propertyPath: offset.y
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 8578804526924167153, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
       propertyPath: m_Name
       value: Main Camera

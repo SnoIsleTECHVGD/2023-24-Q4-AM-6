@@ -26,9 +26,15 @@ public class Dash : MonoBehaviour
     [SerializeField]
     private float dashTime = 0.5f;
     public float dashCooldownTime = 1.25f;
+    private float baseGravity;
 
     [SerializeField]
     private float dashSpeed = 10;
+
+    private void Start()
+    {
+        baseGravity = body2D.gravityScale;
+    }
 
     // Update is called once per frame
     void Update()
@@ -82,7 +88,7 @@ public class Dash : MonoBehaviour
         isDashing = false;
         dashLength = 0;
 
-        body2D.gravityScale = 1;
+        body2D.gravityScale = baseGravity;
         dashCooldown = dashCooldownTime;
     }
 }

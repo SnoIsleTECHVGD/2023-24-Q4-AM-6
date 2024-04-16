@@ -38,10 +38,16 @@ public class Grapple : MonoBehaviour
     public float grappleCooldownTime = 0.75f;
     public float jumpPower = 5;
 
+    private float baseGravity;
     private Vector3 hitPosition;
 
     public float grappleSpeed = 15;
     public float grapplePullSpeed = 1f;
+
+    private void Start()
+    {
+        baseGravity = body2D.gravityScale;
+    }
 
     // Update is called once per frame
     void Update()
@@ -165,7 +171,7 @@ public class Grapple : MonoBehaviour
         isGrappling = false;
         grappleState = "";
 
-        body2D.gravityScale = 1;
+        body2D.gravityScale = baseGravity;
 
         Destroy(currentGrapple);
         currentGrapple = null;
