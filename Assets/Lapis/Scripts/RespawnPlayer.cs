@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class RespawnPlayer : MonoBehaviour
 {
     public GameObject player;
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Hazard"))
         {
-            SceneManager.LoadScene("Level2");
+        SceneManager.LoadScene("Level2");
         }
     }
 }
+
