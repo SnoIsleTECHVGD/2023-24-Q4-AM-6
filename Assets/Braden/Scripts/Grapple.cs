@@ -38,10 +38,16 @@ public class Grapple : MonoBehaviour
     public float grappleCooldownTime = 0.75f;
     public float jumpPower = 5;
 
+    private float baseGravity;
     private Vector3 hitPosition;
 
     public float grappleSpeed = 15;
     public float grapplePullSpeed = 1f;
+
+    private void Start()
+    {
+        baseGravity = body2D.gravityScale;
+    }
 
     // Update is called once per frame
     void Update()
@@ -80,8 +86,8 @@ public class Grapple : MonoBehaviour
         //RaycastHit2D hit = Physics2D.Linecast(grappleLine.GetPosition(0), grappleLine.GetPosition(1), LayerMask.NameToLayer("GrappleHook"));
         //RaycastHit2D hit = Physics2D.Raycast(grappleLine.GetPosition(1), currentGrapple.transform.up, (grappleSpeed * Time.deltaTime) / 4, LayerMask.NameToLayer("GrappleHook"));
         RaycastHit2D hit = Physics2D.BoxCast(grappleLine.GetPosition(1),
-            new Vector2(grappleLine.startWidth, grappleLine.startWidth), currentGrapple.transform.localEulerAngles.z,
-            currentGrapple.transform.up, Time.deltaTime, LayerMask.NameToLayer("GrappleHook"));
+           new Vector2(grappleLine.startWidth, grappleLine.startWidth), currentGrapple.transform.localEulerAngles.z,
+           currentGrapple.transform.up, Time.deltaTime, LayerMask.NameToLayer("GrappleHook"));
 
         if (hit)
         {
@@ -165,7 +171,7 @@ public class Grapple : MonoBehaviour
         isGrappling = false;
         grappleState = "";
 
-        body2D.gravityScale = 1;
+        body2D.gravityScale = baseGravity;
 
         Destroy(currentGrapple);
         currentGrapple = null;
