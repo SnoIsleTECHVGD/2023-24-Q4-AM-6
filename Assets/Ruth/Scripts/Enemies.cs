@@ -8,20 +8,32 @@ public class Enemies : MonoBehaviour
     public Transform movement;
     public Transform startPoint;
     public Transform endPoint;
-    public float speed = 1.5f;
+    public float speed = 0.5f;
     int direction = 1;
+    float timeTravel = 0;
 
 
     private void Update()
     {
         Vector2 target = currentMovementTarget();
 
-        movement.position = Vector2.Lerp(movement.position, target, speed * Time.deltaTime);
+        if (direction < 0)
+        {
+            movement.position = Vector2.Lerp(startPoint.position, endPoint.position, timeTravel);
+        }
+        else
+        {
+            movement.position = Vector2.Lerp(endPoint.position, startPoint.position, timeTravel);
+        }
+       
 
         float distance=(target - (Vector2)movement.position).magnitude;
 
+        timeTravel += Time.deltaTime * speed;
+
         if (distance <= 0.1f)
         {
+            timeTravel = 0;
             direction *= -1;
         }
     }
