@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AiSenser : MonoBehaviour
+
+    //Ask about the dumb friend and figure out how to get the Ai senser to work better with the dumb friend and not be a brat
 {
     public GameObject player;
     public float speed;
