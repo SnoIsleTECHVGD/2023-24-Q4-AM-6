@@ -57,7 +57,7 @@ public class Grapple : MonoBehaviour
 
         if (isGrappling == true)
         {
-            if (dash.isDashing == true)
+            if (dash.isDashing == true || body2D.simulated == false)
             {
                 Cancel();
                 return;
@@ -142,7 +142,7 @@ public class Grapple : MonoBehaviour
 
     void Activate()
     {
-        if (isGrappling == true || canGrapple == false || grappleCooldown > 0 || dash.isDashing == true)
+        if (isGrappling == true || canGrapple == false || grappleCooldown > 0 || dash.isDashing == true || body2D.simulated == false)
             return;
 
         isGrappling = true;

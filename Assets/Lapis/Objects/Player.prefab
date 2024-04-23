@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 2847774635690702377}
   - component: {fileID: 7591006302816474534}
   - component: {fileID: 647377980611565241}
+  - component: {fileID: 1344030902192472407}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -288,4 +289,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c19eaec4ad38544e8dd9df1502b33f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  respawnGlitch: {fileID: 1344030902192472407}
+--- !u!114 &1344030902192472407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892430339821995385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce104e269c68244abf04858509bc02f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 7892430339821995385}
+  teleportPoint: {fileID: 0}
+  lighting: {fileID: 0}
+  mainProfile: {fileID: 11400000, guid: 425c4de90cf71784a9356c185e6fed6f, type: 2}
+  glitchProfile: {fileID: 11400000, guid: a1c5ed05a02e41b4b81ae35f3c6e98b6, type: 2}
+  glitchType: Respawn
+  isActive: 0
+  initialGlitchWeight: 0.25
+  teleportTime: 0.8
