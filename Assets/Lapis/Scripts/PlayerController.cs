@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private Dash dash;
     [SerializeField]
     private Volume volume;
+    private Animator animator;
 
     //Ground Detect
     [SerializeField]
@@ -37,11 +38,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (grapple.grappleState == "Grapple")
         {
             body2D.velocity = Vector2.zero;
@@ -60,12 +63,19 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             body2D.AddForce(Vector2.left * buildUpDelta);
+            animator.SetInteger("Dir", 1);
+            animator.SetBool("Mog", true);
         }
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
             body2D.AddForce(Vector2.right * buildUpDelta);
+            animator.SetInteger("Dir", 0);
+            animator.SetBool("Mog", true);
         }
-
+        else
+        {
+            animator.SetBool("Mog", false);
+        }
         // Jumping
         CheckGrounding();
 
