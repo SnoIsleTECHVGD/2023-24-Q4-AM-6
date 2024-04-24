@@ -52,7 +52,7 @@ public class Grapple : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(button) && Time.timeScale != 0)
+        if (Input.GetKeyDown(button))
             Activate();
 
         if (isGrappling == true)
@@ -142,7 +142,7 @@ public class Grapple : MonoBehaviour
 
     void Activate()
     {
-        if (isGrappling == true || canGrapple == false || grappleCooldown > 0 || dash.isDashing == true || body2D.simulated == false)
+        if (isGrappling == true || canGrapple == false || grappleCooldown > 0 || dash.isDashing == true || body2D.simulated == false || Time.timeScale == 0 || controller.enabled == false)
             return;
 
         isGrappling = true;

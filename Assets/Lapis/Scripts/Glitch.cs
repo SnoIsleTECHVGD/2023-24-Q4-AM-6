@@ -55,6 +55,11 @@ public class Glitch : MonoBehaviour
 
         if (glitchType == "Teleport")
             player.transform.position = teleportPoint.transform.position;
+        else if (glitchType == "Level2Transition")
+        {
+            SceneManager.LoadScene("Level2");
+            return;
+        }
         else if (glitchType == "Respawn")
         {
             StartCoroutine(Respawn());
