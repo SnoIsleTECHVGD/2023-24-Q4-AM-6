@@ -17532,6 +17532,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2587360220011699580, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
+      propertyPath: volume
+      value: 
+      objectReference: {fileID: 8578804527557394497}
     - target: {fileID: 3886527138199164521, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -17733,6 +17737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d49c0228a3deaa498a045e29ab0159e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelName: Level2
 --- !u!61 &2102108906
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17893,3 +17898,14 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
+--- !u!114 &8578804527557394497 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7691960480290964997, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
+  m_PrefabInstance: {fileID: 8578804527557394496}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

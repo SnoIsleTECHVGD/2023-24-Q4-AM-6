@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 2847774635690702377}
   - component: {fileID: 7591006302816474534}
   - component: {fileID: 647377980611565241}
-  - component: {fileID: 6568558626710036836}
+  - component: {fileID: 1344030902192472407}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -140,7 +140,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: d77cdd502c569f94a90857390851faef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a5712e34d8f2bc4dbaa645ca72f2d5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -190,8 +190,6 @@ MonoBehaviour:
   maxspeed: 6
   jumpspeed: 8.5
   coyotetime: 0.5
-  isFacingRight: 0
-  moveSpeed: 1
   grapple: {fileID: 3919838530683762408}
   dash: {fileID: 2094906994732107040}
   foot: {fileID: 1144943576753191019}
@@ -257,8 +255,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: -0.018178208, y: 0.006272065}
-  m_Size: {x: 1.3970028, y: 2.322818}
+  m_Offset: {x: -0.07738737, y: -0.2622563}
+  m_Size: {x: 1.3880993, y: 2.3081431}
   m_Direction: 0
 --- !u!251 &7591006302816474534
 PlatformEffector2D:
@@ -291,24 +289,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c19eaec4ad38544e8dd9df1502b33f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
---- !u!95 &6568558626710036836
-Animator:
-  serializedVersion: 4
+  respawnGlitch: {fileID: 1344030902192472407}
+--- !u!114 &1344030902192472407
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7892430339821995385}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fb3d56e0cfc2a7f408d38f422e5e8976, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce104e269c68244abf04858509bc02f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 7892430339821995385}
+  teleportPoint: {fileID: 0}
+  lighting: {fileID: 0}
+  mainProfile: {fileID: 11400000, guid: 425c4de90cf71784a9356c185e6fed6f, type: 2}
+  glitchProfile: {fileID: 11400000, guid: a1c5ed05a02e41b4b81ae35f3c6e98b6, type: 2}
+  glitchType: Respawn
+  isActive: 0
+  initialGlitchWeight: 0.25
+  teleportTime: 0.8

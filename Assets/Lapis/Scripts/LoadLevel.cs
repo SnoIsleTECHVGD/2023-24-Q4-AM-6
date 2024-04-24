@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadLvl3 : MonoBehaviour
+public class LoadLevel : MonoBehaviour
 {
+    public string levelName;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene("Level2");
+        SceneManager.LoadScene(levelName);
     }
-    /*i COULD use the same script for all level loads hypothetically, 
 
-
-
-    but i'm not gonna*/
+    //its that easy!
+    //..meow
 }

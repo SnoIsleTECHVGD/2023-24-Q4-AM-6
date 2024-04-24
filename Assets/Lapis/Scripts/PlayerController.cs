@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
@@ -18,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private Grapple grapple;
     [SerializeField]
     private Dash dash;
+    [SerializeField]
+    private Volume volume;
 
     //Ground Detect
     [SerializeField]
@@ -48,6 +51,10 @@ public class PlayerController : MonoBehaviour
             return;
 
         float buildUpDelta = (buildup * 1000) * Time.deltaTime;
+        float thisMaxSpeed = maxspeed;
+
+        if (volume.profile.name == "GlitchProfile")
+            thisMaxSpeed /= 2;
 
         // Left-Right Movement
         if (Input.GetKey(KeyCode.A))
@@ -80,7 +87,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Speed Clamp
-        body2D.velocity = new Vector2(Mathf.Clamp(body2D.velocity.x, -maxspeed, maxspeed), Mathf.Clamp(body2D.velocity.y, -jumpspeed, jumpspeed));
+        body2D.velocity = new Vector2(Mathf.Clamp(body2D.velocity.x, -thisMaxSpeed, thisMaxSpeed), Mathf.Clamp(body2D.velocity.y, -jumpspeed, jumpspeed));
     }
 
     public void CheckGrounding()
