@@ -7,6 +7,9 @@ public class Interaction : MonoBehaviour
 {
     public KeyCode button = KeyCode.E;
     public bool isOneTimeEvent = true;
+
+    [SerializeField]
+    private SpriteRenderer lightUpSprite;
     public UnityEvent interactEvent;
 
     private bool isTouching = false;
@@ -23,7 +26,12 @@ public class Interaction : MonoBehaviour
         if (isTouching && Input.GetKeyDown(button))
         {
             if (isOneTimeEvent)
+            {
                 isActive = true;
+
+                if (lightUpSprite)
+                    lightUpSprite.color = new Color(1, 1, 1);
+            }    
 
             interactEvent.Invoke();
         }
@@ -34,12 +42,23 @@ public class Interaction : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
             isTouching = true;
+
+            if (lightUpSprite)
+                lightUpSprite.color = new Color(78 / 255, 255 / 255, 0);
+        }
+            
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
             isTouching = false;
+
+            if (lightUpSprite)
+                lightUpSprite.color = new Color(1, 1, 1);
+        }   
     }
 }

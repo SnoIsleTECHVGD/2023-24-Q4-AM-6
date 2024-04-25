@@ -220,7 +220,7 @@ MonoBehaviour:
   grappleDuration: 0
   grappleState: 
   timeToDestroy: 0.45
-  grappleCooldownTime: 0.4
+  grappleCooldownTime: 0.1
   jumpPower: 0
   grappleSpeed: 65
   grapplePullSpeed: 25
@@ -242,7 +242,7 @@ MonoBehaviour:
   isDashing: 0
   canDash: 1
   dashTime: 0.3
-  dashCooldownTime: 1.6
+  dashCooldownTime: 1.2
   dashSpeed: 12
 --- !u!70 &2847774635690702377
 CapsuleCollider2D:
@@ -312,7 +312,7 @@ MonoBehaviour:
   glitchType: Respawn
   isActive: 0
   initialGlitchWeight: 0.25
-  teleportTime: 0.8
+  teleportTime: 1.1
 --- !u!95 &4354597332612176637
 Animator:
   serializedVersion: 4

@@ -77,7 +77,11 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Mog", false);
         }
         // Jumping
-        CheckGrounding();
+
+        if (CheckGrounding())
+            timeSinceGrounded = 0;
+        else
+            timeSinceGrounded += Time.deltaTime;
 
         if (isJumping == true)
         {
@@ -100,7 +104,7 @@ public class PlayerController : MonoBehaviour
         body2D.velocity = new Vector2(Mathf.Clamp(body2D.velocity.x, -thisMaxSpeed, thisMaxSpeed), Mathf.Clamp(body2D.velocity.y, -jumpspeed, jumpspeed));
     }
 
-    public void CheckGrounding()
+    public bool CheckGrounding()
     {
         RaycastHit2D[] cast = new RaycastHit2D[1];
 
@@ -108,11 +112,7 @@ public class PlayerController : MonoBehaviour
         filter.layerMask = groundMask;
 
         int results = foot.Cast(Vector2.down, filter, cast, 0.2f, true);
-
-        if (results > 0)
-            timeSinceGrounded = 0;
-        else
-            timeSinceGrounded += Time.deltaTime;
+        return results > 0;
     }
 
 }

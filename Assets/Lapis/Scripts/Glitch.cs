@@ -53,8 +53,11 @@ public class Glitch : MonoBehaviour
 
         isActive = false;
 
-        if (glitchType == "Teleport")
+        if (glitchType == "Teleport" || glitchType == "TeleportNoCollide")
+        {
             player.transform.position = teleportPoint.transform.position;
+            player.GetComponent<PlayerController>().enabled = true;
+        }
         else if (glitchType == "Level2Transition")
         {
             SceneManager.LoadScene("Level2");

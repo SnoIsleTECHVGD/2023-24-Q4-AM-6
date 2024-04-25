@@ -49,7 +49,12 @@ public class Dash : MonoBehaviour
 
             dashLength -= Time.deltaTime;
         } else
-            dashCooldown -= Time.deltaTime;
+        {
+            if (controller.CheckGrounding())
+                dashCooldown -= Time.deltaTime * 3;
+            else
+                dashCooldown -= Time.deltaTime;
+        }
     }
 
     public void Activate()
