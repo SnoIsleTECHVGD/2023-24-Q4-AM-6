@@ -8736,7 +8736,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -9036,7 +9036,7 @@ GameObject:
   - component: {fileID: 1797520982}
   - component: {fileID: 1797520981}
   - component: {fileID: 1797520980}
-  - component: {fileID: 1797520979}
+  - component: {fileID: 1797520983}
   m_Layer: 8
   m_Name: 'vent from among us impostro 3d escape the sussy bakas '
   m_TagString: Untagged
@@ -9044,19 +9044,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1797520979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797520978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d49c0228a3deaa498a045e29ab0159e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Level4
 --- !u!61 &1797520980
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9143,13 +9130,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797520978}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.52, y: -15.569086, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 36.52, y: -15.3358, z: 0}
+  m_LocalScale: {x: 0.46285206, y: 0.39220348, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1797520983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797520978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9027a6867c6077a4e939a39dfc635a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 349309647}
+  mainCamera: {fileID: 2098289066}
+  camFollow: {fileID: 2098289065}
 --- !u!1 &1852143405
 GameObject:
   m_ObjectHideFlags: 0
@@ -15816,3 +15818,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2098289065 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1236198242497814938, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
+  m_PrefabInstance: {fileID: 2098289063}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87275fba54b71964190bfa0620f1dd16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!20 &2098289066 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8578804526924167155, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
+  m_PrefabInstance: {fileID: 2098289063}
+  m_PrefabAsset: {fileID: 0}
