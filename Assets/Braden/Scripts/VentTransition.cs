@@ -14,11 +14,18 @@ public class VentTransition : MonoBehaviour
     private CamFollow camFollow;
 
     private bool active = false;
+    private bool isZooming = false;
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (isZooming)
+        {
+            mainCamera.orthographicSize -= Time.deltaTime * 5;
+
+            if (mainCamera.orthographicSize <= 0)
+                StartCoroutine(Complete());
+        }
     }
 
     IEnumerator Activate()
@@ -28,7 +35,17 @@ public class VentTransition : MonoBehaviour
         player.GetComponent<Rigidbody2D>().simulated = false;
         player.GetComponent<SpriteRenderer>().enabled = false;
 
-        yield return new WaitForSeconds(1f);
+        //camFollow.speed = 3;
+        camFollow.target = transform;
+
+        yield return new WaitForSeconds(0.4f);
+        isZooming = true;
+    }
+
+    IEnumerator Complete()
+    {
+        isZooming = false;
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene("Level4");
     }
 

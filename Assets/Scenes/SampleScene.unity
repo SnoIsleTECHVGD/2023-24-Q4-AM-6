@@ -139,46 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &385868331 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5311531423398510539, guid: c17cfd3ec5ff0f547bd169843fd88250, type: 3}
-  m_PrefabInstance: {fileID: 5311531425072957830}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &385868333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 385868331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7a1e5c8915d69245927239dded62ea5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 2
-  health: {fileID: 564192027}
---- !u!50 &385868334
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 385868331}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 200
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!4 &385868335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5311531423398510536, guid: c17cfd3ec5ff0f547bd169843fd88250, type: 3}
@@ -982,42 +942,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5311531423398510548, guid: c17cfd3ec5ff0f547bd169843fd88250, type: 3}
-      propertyPath: speed
-      value: 6
-      objectReference: {fileID: 0}
+    - target: {fileID: 4019369964651304507, guid: c17cfd3ec5ff0f547bd169843fd88250, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 564192027}
     - target: {fileID: 5311531423398510548, guid: c17cfd3ec5ff0f547bd169843fd88250, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 564192017}
-    - target: {fileID: 5311531423398510548, guid: c17cfd3ec5ff0f547bd169843fd88250, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5311531423398510548, guid: c17cfd3ec5ff0f547bd169843fd88250, type: 3}
-      propertyPath: distanceBetween
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5311531424282403666, guid: c17cfd3ec5ff0f547bd169843fd88250, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 564192017}
-    - target: {fileID: 5311531424282403666, guid: c17cfd3ec5ff0f547bd169843fd88250, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5311531424282403666, guid: c17cfd3ec5ff0f547bd169843fd88250, type: 3}
-      propertyPath: distanceBetween
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5311531424282403668, guid: c17cfd3ec5ff0f547bd169843fd88250, type: 3}
       propertyPath: endPoint
       value: 
       objectReference: {fileID: 1916013635}
-    - target: {fileID: 5311531424282403668, guid: c17cfd3ec5ff0f547bd169843fd88250, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5311531424282403668, guid: c17cfd3ec5ff0f547bd169843fd88250, type: 3}
       propertyPath: startPoint
       value: 
@@ -1074,9 +1010,19 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5752679237176413519, guid: c17cfd3ec5ff0f547bd169843fd88250, type: 3}
-    - {fileID: 5311531424282403666, guid: c17cfd3ec5ff0f547bd169843fd88250, type: 3}
+    - target: {fileID: 0}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 564192017}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: distanceBetween
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5311531424282403669, guid: c17cfd3ec5ff0f547bd169843fd88250, type: 3}
       insertIndex: 0
