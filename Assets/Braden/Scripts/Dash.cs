@@ -19,6 +19,7 @@ public class Dash : MonoBehaviour
 
     private float dashLength = 0;
     private float dashCooldown = 0;
+    private Animator animator;
 
     private Vector2 direction;
 
@@ -33,6 +34,7 @@ public class Dash : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         baseGravity = body2D.gravityScale;
     }
 
@@ -48,6 +50,7 @@ public class Dash : MonoBehaviour
                 Cancel();
 
             dashLength -= Time.deltaTime;
+
         } else
         {
             if (controller.CheckGrounding())
@@ -55,6 +58,7 @@ public class Dash : MonoBehaviour
             else
                 dashCooldown -= Time.deltaTime;
         }
+
     }
 
     public void Activate()
@@ -83,17 +87,26 @@ public class Dash : MonoBehaviour
 
         body2D.velocity = Vector2.zero;
         body2D.AddForce(direction, ForceMode2D.Impulse);
+        animator.SetBool("Dash", true);
+        animator.SetBool("Mog", false);
+
     }
 
     public void Cancel()
     {
-        if (isDashing == false) 
+        if (isDashing == false)
+        {
             return;
+        }
 
         isDashing = false;
         dashLength = 0;
 
         body2D.gravityScale = baseGravity;
         dashCooldown = dashCooldownTime;
+
+        animator.SetBool("Dash", false);
+        animator.SetBool("Mog", true);
+
     }
 }
