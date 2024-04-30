@@ -30,11 +30,20 @@ public class AiSenser : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
         }
+        /*
+        bool CanSeePlayer(float distance)
+        {
+            bool val = false;
+            float castDist = distance;
+
+            Vector2 endPos
+            RaycastHit2D hit = Physics2D.Linecast(transform.position, )
+        }
         //    GetComponentInParent<Enemies>().enabled = false;
         //}
         //else
         //{
         //    GetComponentInParent<Enemies>().enabled = true;
-        //}
+        //}*/
     }
 }
