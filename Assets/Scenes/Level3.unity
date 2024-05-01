@@ -7774,6 +7774,8 @@ MonoBehaviour:
   controller: {fileID: 794554735}
   coolSprite: {fileID: 1627808666, guid: 58b5b7cba7628df45b2b90a6c91f6f08, type: 3}
   glitch: {fileID: 579194657}
+  cam: {fileID: 2098289066}
+  sun: {fileID: 1113716888}
 --- !u!114 &579194659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15740,6 +15742,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 794554727}
+    - target: {fileID: 7691960480290964997, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
+      propertyPath: weight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8578804526924167153, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
       propertyPath: m_Name
       value: Main Camera
