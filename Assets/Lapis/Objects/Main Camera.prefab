@@ -162,6 +162,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 8578804526924167156}
     m_Modifications:
+    - target: {fileID: 6554543102814886759, guid: 67513b1e2dd2fb246a69e3a24d152d6c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 389.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693231774236773338, guid: 67513b1e2dd2fb246a69e3a24d152d6c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 389.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 7251510059955164800, guid: 67513b1e2dd2fb246a69e3a24d152d6c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7251510059955164803, guid: 67513b1e2dd2fb246a69e3a24d152d6c, type: 3}
       propertyPath: m_Camera
       value: 

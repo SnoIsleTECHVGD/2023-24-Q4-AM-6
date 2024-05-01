@@ -23914,6 +23914,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 794554727}
+    - target: {fileID: 7190925235593327556, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 389.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340309426753479545, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 389.88
+      objectReference: {fileID: 0}
     - target: {fileID: 8578804526924167153, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
       propertyPath: m_Name
       value: Main Camera
