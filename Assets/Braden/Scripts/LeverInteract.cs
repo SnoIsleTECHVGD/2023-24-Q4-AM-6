@@ -21,7 +21,7 @@ public class LeverInteract : MonoBehaviour
 
     public void DoInteract()
     {
-        controller.enabled = false;
+        controller.Enable(false);
         StartCoroutine(Interact2());
     }
 

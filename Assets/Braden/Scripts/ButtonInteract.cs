@@ -27,7 +27,7 @@ public class ButtonInteract : MonoBehaviour
 
     public void DoInteract()
     {
-        controller.enabled = false;
+        controller.Enable(false);
         StartCoroutine(Interact2());
     }
 

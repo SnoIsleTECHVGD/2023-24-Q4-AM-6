@@ -142,7 +142,7 @@ public class Grapple : MonoBehaviour
 
     void Activate()
     {
-        if (isGrappling == true || canGrapple == false || grappleCooldown > 0 || dash.isDashing == true || body2D.simulated == false || Time.timeScale == 0 || controller.enabled == false)
+        if (isGrappling == true || canGrapple == false || grappleCooldown > 0 || dash.isDashing == true || body2D.simulated == false || Time.timeScale == 0 || controller.isActive == false)
             return;
 
         isGrappling = true;
@@ -162,7 +162,7 @@ public class Grapple : MonoBehaviour
         currentGrapple.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
     }
 
-    void Cancel()
+    public void Cancel()
     {
         if (isGrappling == false)
             return;

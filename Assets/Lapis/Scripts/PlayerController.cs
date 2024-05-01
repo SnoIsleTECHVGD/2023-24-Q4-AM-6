@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
     private bool isJumping = false;
     private float jumpTime = 0;
 
+    public bool isActive = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,10 +46,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (grapple.grappleState == "Grapple")
+        if (grapple.grappleState == "Grapple" || isActive == false)
         {
             body2D.velocity = Vector2.zero;
+            animator.SetBool("Mog", false);
             return;
         }
         else if (dash.isDashing == true)
@@ -104,6 +106,8 @@ public class PlayerController : MonoBehaviour
         body2D.velocity = new Vector2(Mathf.Clamp(body2D.velocity.x, -thisMaxSpeed, thisMaxSpeed), Mathf.Clamp(body2D.velocity.y, -jumpspeed, jumpspeed));
     }
 
+    // Public
+
     public bool CheckGrounding()
     {
         RaycastHit2D[] cast = new RaycastHit2D[1];
@@ -115,4 +119,11 @@ public class PlayerController : MonoBehaviour
         return results > 0;
     }
 
+    public void Enable(bool State)
+    {
+        if (State == isActive)
+            return;
+
+        isActive = State;
+    }
 }

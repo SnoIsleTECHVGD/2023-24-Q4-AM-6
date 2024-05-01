@@ -55,6 +55,7 @@ public class Glitch : MonoBehaviour
 
         if (glitchType == "Teleport" || glitchType == "TeleportNoCollide")
         {
+            player.GetComponent<Grapple>().Cancel();
             player.transform.position = teleportPoint.transform.position;
             StartCoroutine(ReEnable());
         }
@@ -84,7 +85,7 @@ public class Glitch : MonoBehaviour
     IEnumerator ReEnable()
     {
         yield return new WaitForSeconds(0.3f);
-        player.GetComponent<PlayerController>().enabled = true;
+        player.GetComponent<PlayerController>().Enable(true);
     }
 
     // Trigger

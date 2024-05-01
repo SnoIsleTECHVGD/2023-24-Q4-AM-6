@@ -63,7 +63,7 @@ public class Dash : MonoBehaviour
 
     public void Activate()
     {
-        if (canDash == false || isDashing == true || dashCooldown > 0 || controller.enabled == false || Time.timeScale == 0)
+        if (canDash == false || isDashing == true || dashCooldown > 0 || controller.isActive == false || Time.timeScale == 0)
             return;
 
         isDashing = true;

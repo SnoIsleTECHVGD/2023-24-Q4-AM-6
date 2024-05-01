@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1549587514346920113}
   - component: {fileID: 1549587514346920127}
   - component: {fileID: 1549587514346920124}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GlitchTeleport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,5 +130,6 @@ MonoBehaviour:
   mainProfile: {fileID: 11400000, guid: 425c4de90cf71784a9356c185e6fed6f, type: 2}
   glitchProfile: {fileID: 11400000, guid: a1c5ed05a02e41b4b81ae35f3c6e98b6, type: 2}
   glitchType: Teleport
+  isActive: 0
   initialGlitchWeight: 0.25
   teleportTime: 1.2

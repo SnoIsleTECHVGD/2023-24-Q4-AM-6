@@ -198,6 +198,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  isActive: 1
 --- !u!114 &3919838530683762408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,7 +244,7 @@ MonoBehaviour:
   canDash: 1
   dashTime: 0.3
   dashCooldownTime: 1.2
-  dashSpeed: 12
+  dashSpeed: 10
 --- !u!70 &2847774635690702377
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
