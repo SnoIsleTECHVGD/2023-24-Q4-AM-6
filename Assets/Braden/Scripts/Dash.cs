@@ -51,7 +51,9 @@ public class Dash : MonoBehaviour
 
             dashLength -= Time.deltaTime;
 
-        } else
+
+        }
+        else
         {
             if (controller.CheckGrounding())
                 dashCooldown -= Time.deltaTime * 3;
@@ -88,8 +90,6 @@ public class Dash : MonoBehaviour
         body2D.velocity = Vector2.zero;
         body2D.AddForce(direction, ForceMode2D.Impulse);
         animator.SetBool("Dash", true);
-        animator.SetBool("Mog", false);
-
     }
 
     public void Cancel()
@@ -99,14 +99,14 @@ public class Dash : MonoBehaviour
             return;
         }
 
+        animator.SetBool("Dash", false);
+
         isDashing = false;
         dashLength = 0;
 
         body2D.gravityScale = baseGravity;
         dashCooldown = dashCooldownTime;
 
-        animator.SetBool("Dash", false);
-        animator.SetBool("Mog", true);
 
     }
 }
