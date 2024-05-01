@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class RespawnPlayer : MonoBehaviour
 {
+    private Animator animator;
     [SerializeField]
     private Glitch respawnGlitch;
 
@@ -12,8 +13,8 @@ public class RespawnPlayer : MonoBehaviour
             if (respawnGlitch.isActive == false)
             {
                 GetComponent<Rigidbody2D>().simulated = false;
-                GetComponent<SpriteRenderer>().enabled = false;
-
+               
+                GetComponent<Animator>().SetBool("Dead", true);
                 respawnGlitch.Activate();
             }
         }
