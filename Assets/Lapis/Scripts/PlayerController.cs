@@ -65,13 +65,19 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             body2D.AddForce(Vector2.left * buildUpDelta);
-            animator.SetInteger("Dir", 1);
+
+            if (grapple.isGrappling == false)
+                animator.SetInteger("Dir", 1);
+
             animator.SetBool("Mog", true);
         }
         else if (Input.GetKey(KeyCode.D))
         {
             body2D.AddForce(Vector2.right * buildUpDelta);
-            animator.SetInteger("Dir", 0);
+
+            if (grapple.isGrappling == false)
+                animator.SetInteger("Dir", 0);
+
             animator.SetBool("Mog", true);
         }
         else

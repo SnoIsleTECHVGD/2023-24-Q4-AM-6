@@ -18,6 +18,9 @@ public class Grapple : MonoBehaviour
     private KeyCode button;
 
     [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
     private GameObject grapplePrefab;
     private GameObject currentGrapple;
     private LineRenderer grappleLine;
@@ -158,8 +161,17 @@ public class Grapple : MonoBehaviour
         Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         diff.Normalize();
 
-        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        currentGrapple.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+        float rot_z = (Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg) - 90;
+        currentGrapple.transform.rotation = Quaternion.Euler(0f, 0f, rot_z);
+
+        // Animator
+
+        if (rot_z <= 0)
+            animator.SetInteger("Dir", 0);
+        else
+            animator.SetInteger("Dir", 1);
+
+        animator.SetBool("Grapple", true);
     }
 
     public void Cancel()
@@ -170,6 +182,8 @@ public class Grapple : MonoBehaviour
         grappleCooldown = grappleCooldownTime;
         isGrappling = false;
         grappleState = "";
+
+        animator.SetBool("Grapple", false);
 
         body2D.gravityScale = baseGravity;
 
