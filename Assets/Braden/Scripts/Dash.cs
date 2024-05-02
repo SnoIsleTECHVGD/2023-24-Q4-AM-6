@@ -74,21 +74,19 @@ public class Dash : MonoBehaviour
         direction = Vector2.zero;
 
         if (Input.GetKey(KeyCode.W))
-            direction += (Vector2.up * dashSpeed);
-        if (Input.GetKey(KeyCode.S))
-            direction += (Vector2.down * dashSpeed);
+            direction += Vector2.up;
         if (Input.GetKey(KeyCode.A))
-            direction += (Vector2.left * dashSpeed);
+            direction += Vector2.left;
         if (Input.GetKey(KeyCode.D))
-            direction += (Vector2.right * dashSpeed);
+            direction += Vector2.right;
 
         if (direction == Vector2.zero)
-            direction = (Vector2.up * dashSpeed);
+            direction = Vector2.up;
 
         body2D.gravityScale = 0f;
 
         body2D.velocity = Vector2.zero;
-        body2D.AddForce(direction, ForceMode2D.Impulse);
+        body2D.AddForce(direction.normalized * dashSpeed, ForceMode2D.Impulse);
         animator.SetBool("Dash", true);
     }
 

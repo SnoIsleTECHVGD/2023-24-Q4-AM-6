@@ -223,7 +223,7 @@ MonoBehaviour:
   timeToDestroy: 0.45
   grappleCooldownTime: 0.1
   jumpPower: 0
-  grappleSpeed: 65
+  grappleSpeed: 70
   grapplePullSpeed: 25
 --- !u!114 &2094906994732107040
 MonoBehaviour:
