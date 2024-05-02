@@ -25,6 +25,10 @@ public class Grapple : MonoBehaviour
     private GameObject currentGrapple;
     private LineRenderer grappleLine;
 
+    [SerializeField]
+    private Transform shoulder;
+    [SerializeField]
+    private SpriteRenderer arm;
 
     // Variables
     public bool canGrapple = true;
@@ -115,7 +119,7 @@ public class Grapple : MonoBehaviour
         float amount = grappleSpeed * Time.deltaTime;
 
         currentGrapple.transform.Translate(currentGrapple.transform.up * (amount / 2), Space.World);
-        grappleLine.SetPositions(new Vector3[] { body2D.position, currentGrapple.transform.position });
+        grappleLine.SetPositions(new Vector3[] { shoulder.position, currentGrapple.transform.position });
     }
     void GrappleHitUpdate()
     {
@@ -129,10 +133,20 @@ public class Grapple : MonoBehaviour
         if ((transform.position - goal).magnitude >= 0.4f)
         {
             body2D.position = Vector3.Lerp(body2D.position, goal, grappleDuration * (grapplePullSpeed / 100));
-            grappleLine.SetPositions(new Vector3[] { body2D.position, hitPosition });
+            grappleLine.SetPositions(new Vector3[] { shoulder.position, hitPosition });
         } 
         else
             body2D.position = goal;
+
+        // Update Arm
+
+        Vector3 diff2 = hitPosition - shoulder.position;
+        diff2.Normalize();
+
+        float rot_z = Mathf.Atan2(diff2.y, diff2.x) * Mathf.Rad2Deg;
+        shoulder.rotation = Quaternion.Euler(0f, 0f, rot_z + 90);
+
+        // Cancel
 
         if (Input.GetKey(KeyCode.Space))
         {
@@ -151,27 +165,38 @@ public class Grapple : MonoBehaviour
         isGrappling = true;
         grappleDuration = 0;
 
-        currentGrapple = Instantiate(grapplePrefab, transform.position, Quaternion.identity, transform);
-
-        grappleLine = currentGrapple.GetComponent<LineRenderer>();
-        grappleLine.SetPositions(new Vector3[] { transform.position, transform.position });
-
         // Rotate to Face Mouse
 
         Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         diff.Normalize();
 
-        float rot_z = (Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg) - 90;
-        currentGrapple.transform.rotation = Quaternion.Euler(0f, 0f, rot_z);
+        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
 
         // Animator
 
-        if (rot_z <= 0)
+        if (rot_z >= -90 && rot_z <= 90) // right
+        {
             animator.SetInteger("Dir", 0);
-        else
+            shoulder.transform.localPosition = new Vector3(0.501f, 0.34f, 0);
+        } 
+        else // left
+        {
             animator.SetInteger("Dir", 1);
+            shoulder.transform.localPosition = new Vector3(-0.501f, 0.34f, 0);
+        }
 
         animator.SetBool("Grapple", true);
+        arm.enabled = true;
+
+        // Make the Grapple
+
+        currentGrapple = Instantiate(grapplePrefab, shoulder.position, Quaternion.identity, transform);
+
+        grappleLine = currentGrapple.GetComponent<LineRenderer>();
+        grappleLine.SetPositions(new Vector3[] { shoulder.position, shoulder.position });
+
+        currentGrapple.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+        shoulder.rotation = Quaternion.Euler(0f, 0f, rot_z + 90);
     }
 
     public void Cancel()
@@ -184,6 +209,7 @@ public class Grapple : MonoBehaviour
         grappleState = "";
 
         animator.SetBool("Grapple", false);
+        arm.enabled = false;
 
         body2D.gravityScale = baseGravity;
 
