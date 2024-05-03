@@ -64,7 +64,7 @@ public class Grapple : MonoBehaviour
 
         if (isGrappling == true)
         {
-            if (dash.isDashing == true || body2D.simulated == false)
+            if (dash.isDashing == true || body2D.simulated == false || controller.isActive == false)
             {
                 Cancel();
                 return;
