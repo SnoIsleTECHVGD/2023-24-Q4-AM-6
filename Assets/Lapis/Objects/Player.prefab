@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 435b639a0cc41534495a70b0beb04b72, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -161,8 +161,8 @@ GameObject:
   - component: {fileID: 647377980611565241}
   - component: {fileID: 1344030902192472407}
   - component: {fileID: 4354597332612176637}
-  - component: {fileID: 4895611552403754950}
   - component: {fileID: 619231425303332856}
+  - component: {fileID: 3522524234957047044}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -303,6 +303,8 @@ MonoBehaviour:
   dash: {fileID: 2094906994732107040}
   button: 323
   animator: {fileID: 4354597332612176637}
+  playerfriction: {fileID: 6200000, guid: 55c55ff2964303f4f86dda707f5b9968, type: 2}
+  nofriction: {fileID: 6200000, guid: ee10398b69c581b4dbbce3c720a63dee, type: 2}
   grapplePrefab: {fileID: 2610337673115838187, guid: bebf670aa1d59834d8f1e16dc5c46d5e, type: 3}
   shoulder: {fileID: 5607611159037757885}
   arm: {fileID: 4881519276918248761}
@@ -310,7 +312,7 @@ MonoBehaviour:
   isGrappling: 0
   grappleDuration: 0
   grappleState: 
-  timeToDestroy: 0.45
+  timeToDestroy: 0.5
   grappleCooldownTime: 0.1
   jumpPower: 0
   grappleSpeed: 70
@@ -334,7 +336,7 @@ MonoBehaviour:
   canDash: 1
   dashTime: 0.3
   dashCooldownTime: 1.2
-  dashSpeed: 10
+  dashSpeed: 11
 --- !u!70 &2847774635690702377
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -397,6 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7892430339821995385}
   teleportPoint: {fileID: 0}
+  checkpointPoint: {fileID: 0}
   lighting: {fileID: 0}
   mainProfile: {fileID: 11400000, guid: 425c4de90cf71784a9356c185e6fed6f, type: 2}
   glitchProfile: {fileID: 11400000, guid: a1c5ed05a02e41b4b81ae35f3c6e98b6, type: 2}
@@ -424,8 +427,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &4895611552403754950
-BoxCollider2D:
+--- !u!114 &619231425303332856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892430339821995385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbbd3e2143b2d1f4faa5c3e4cbd68642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 200
+  health: 200
+--- !u!60 &3522524234957047044
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -447,23 +464,21 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.375, y: 2.3125}
-  m_EdgeRadius: 0
---- !u!114 &619231425303332856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7892430339821995385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbbd3e2143b2d1f4faa5c3e4cbd68642, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 200
-  health: 200
+  m_Points:
+    m_Paths:
+    - - {x: -0.31102663, y: 1.0851448}
+      - {x: -0.2931672, y: 0.49999577}
+      - {x: -0.66192394, y: 0.46995866}
+      - {x: -0.66337645, y: -0.44434214}
+      - {x: -0.37632442, y: -0.43165258}
+      - {x: -0.44170478, y: -1.143462}
+      - {x: 0.3834675, y: -1.1477245}
+      - {x: 0.40566248, y: -0.35445037}
+      - {x: 0.70881337, y: -0.32658365}
+      - {x: 0.6960253, y: 0.6036576}
+      - {x: 0.3121516, y: 0.54209065}
+      - {x: 0.2898043, y: 1.0752591}
+  m_UseDelaunayMesh: 0
 --- !u!1 &8065440631418317546
 GameObject:
   m_ObjectHideFlags: 0

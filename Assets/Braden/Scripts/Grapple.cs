@@ -39,11 +39,14 @@ public class Grapple : MonoBehaviour
 
     // Variables
     public bool canGrapple = true;
+
+    [HideInInspector]
     public bool isGrappling = false;
 
     public float grappleDuration = 0;
     private float grappleCooldown = 0;
 
+    [HideInInspector]
     public string grappleState = "";
 
     // Constants
