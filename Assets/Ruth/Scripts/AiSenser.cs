@@ -6,11 +6,14 @@ public class AiSenser : MonoBehaviour
 
     //Ask about the dumb friend and figure out how to get the Ai senser to work better with the dumb friend and not be a brat
 {
+
     public GameObject player;
+    public LayerMask layermask;
     public float speed;
     public float distanceBetween;
 
     private float distance;
+    private bool hasLineOfSight;
     
     // Start is called before the first frame update
     void Start()
@@ -21,15 +24,22 @@ public class AiSenser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distance = Vector2.Distance(transform.position, player.transform.position);
-        Vector2 direction = player.transform.position - transform.position;
+       distance = Vector2.Distance(transform.position, player.transform.position);
+        //Vector2 direction = player.transform.position - transform.position;
 
 
 
         if (distance < distanceBetween)
         {
-            transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+            RaycastHit2D ray = Physics2D.Raycast(transform.position, player.transform.position - transform.position, 53853, layermask);
+
+            if (ray.collider && ray.collider.gameObject.CompareTag("Player"))
+            {
+                print("YES");
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            }
         }
+
         /*
         bool CanSeePlayer(float distance)
         {
@@ -46,4 +56,26 @@ public class AiSenser : MonoBehaviour
         //    GetComponentInParent<Enemies>().enabled = true;
         //}*/
     }
+    /*
+    private void FixedUpdate()
+    {
+        Debug.DrawLine(transform.position, player.transform.position);
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, player.transform.position - transform.position, 53853, layermask);
+       
+
+        if (ray.collider != null)
+        {
+            print(ray.collider.gameObject.name);
+            hasLineOfSight = ray.collider.gameObject.CompareTag("Player");
+            if (hasLineOfSight)
+            {
+                print("YES");
+                Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.red);
+            }
+            else
+            {
+                Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.white);
+            }
+        }
+      }*/
 }
