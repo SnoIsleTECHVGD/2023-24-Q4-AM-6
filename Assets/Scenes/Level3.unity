@@ -7624,7 +7624,7 @@ GameObject:
   - component: {fileID: 579194659}
   - component: {fileID: 579194658}
   - component: {fileID: 579194657}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7671,7 +7671,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 459182208, guid: 446f30cd17af38c449df943935a36855, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7889,6 +7889,10 @@ PrefabInstance:
       propertyPath: lighting
       value: 
       objectReference: {fileID: 2098289064}
+    - target: {fileID: 1344030902192472407, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
+      propertyPath: teleportTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1344030902192472407, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
       propertyPath: glitchProfile
       value: 

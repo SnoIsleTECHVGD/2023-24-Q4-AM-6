@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Grapple : MonoBehaviour
 {
@@ -19,6 +21,11 @@ public class Grapple : MonoBehaviour
 
     [SerializeField]
     private Animator animator;
+
+    [SerializeField]
+    private PhysicsMaterial2D playerfriction;
+    [SerializeField]
+    private PhysicsMaterial2D nofriction;
 
     [SerializeField]
     private GameObject grapplePrefab;
@@ -64,7 +71,7 @@ public class Grapple : MonoBehaviour
 
         if (isGrappling == true)
         {
-            if (dash.isDashing == true || body2D.simulated == false)
+            if (dash.isDashing == true || body2D.simulated == false || controller.isActive == false)
             {
                 Cancel();
                 return;
@@ -90,8 +97,6 @@ public class Grapple : MonoBehaviour
     // OnUpdate
     void CheckForGrappleHit()
     {
-        //RaycastHit2D hit = Physics2D.Linecast(grappleLine.GetPosition(0), grappleLine.GetPosition(1), LayerMask.NameToLayer("GrappleHook"));
-        //RaycastHit2D hit = Physics2D.Raycast(grappleLine.GetPosition(1), currentGrapple.transform.up, (grappleSpeed * Time.deltaTime) / 4, LayerMask.NameToLayer("GrappleHook"));
         RaycastHit2D hit = Physics2D.BoxCast(grappleLine.GetPosition(1),
            new Vector2(grappleLine.startWidth, grappleLine.startWidth), currentGrapple.transform.localEulerAngles.z,
            currentGrapple.transform.up, Time.deltaTime, LayerMask.NameToLayer("GrappleHook"));
@@ -103,6 +108,8 @@ public class Grapple : MonoBehaviour
                 grappleState = "Grapple";
                 grappleDuration = 0;  
                 hitPosition = currentGrapple.transform.position;
+
+                GetComponent<PolygonCollider2D>().sharedMaterial = nofriction;
             }
             else
                 grappleState = "Wall";
@@ -126,17 +133,19 @@ public class Grapple : MonoBehaviour
         // Grapple has hit
 
         Vector3 diff = (currentGrapple.transform.position - transform.position).normalized / 2;
+
         Vector3 goal = hitPosition - diff;
+        Vector2 goalv2 = new Vector2(goal.x, goal.y);
 
         body2D.gravityScale = 0;
 
-        if ((transform.position - goal).magnitude >= 0.4f)
-        {
-            body2D.position = Vector3.Lerp(body2D.position, goal, grappleDuration * (grapplePullSpeed / 100));
-            grappleLine.SetPositions(new Vector3[] { shoulder.position, hitPosition });
-        } 
-        else
-            body2D.position = goal;
+        // Pull
+
+        Vector2 target = (goalv2 - body2D.position);
+        target.Normalize();
+
+        body2D.velocity = target * (grapplePullSpeed / 1.5f);
+        grappleLine.SetPositions(new Vector3[] { shoulder.position, hitPosition });
 
         // Update Arm
 
@@ -203,6 +212,9 @@ public class Grapple : MonoBehaviour
     {
         if (isGrappling == false)
             return;
+
+        if (grappleState == "Grapple")
+            GetComponent<PolygonCollider2D>().sharedMaterial = playerfriction;
 
         grappleCooldown = grappleCooldownTime;
         isGrappling = false;
