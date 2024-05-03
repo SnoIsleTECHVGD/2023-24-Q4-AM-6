@@ -80,20 +80,19 @@ public class Glitch : MonoBehaviour
     IEnumerator Respawn()
     {
         yield return new WaitForSeconds(0.15f);
-        if (checkpointPoint.GetComponent<CheckpointTrigger>().active == true)
+
+        if (checkpointPoint && checkpointPoint.GetComponent<CheckpointTrigger>().active == true)
         {
-            yield return new WaitForSeconds(0.15f);
             player.transform.position = checkpointPoint.transform.position;
             player.GetComponent<PlayerController>().Enable(true);
             player.GetComponent<Rigidbody2D>().simulated = true;
             GetComponent<Animator>().SetBool("Dead", false);
+
             lighting.profile = mainProfile;
             lighting.weight = 1;
         }
-        else if (checkpointPoint.GetComponent<CheckpointTrigger>().active == false)
-        {
+        else
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
     }
 
     IEnumerator ReEnable()
