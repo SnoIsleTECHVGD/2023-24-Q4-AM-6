@@ -13,6 +13,7 @@ public class RespawnPlayer : MonoBehaviour
             if (respawnGlitch.isActive == false)
             {
                 GetComponent<Rigidbody2D>().simulated = false;
+                GetComponent<PlayerController>().Enable(false);
                
                 GetComponent<Animator>().SetBool("Dead", true);
                 respawnGlitch.Activate();

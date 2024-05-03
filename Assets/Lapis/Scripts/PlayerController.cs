@@ -46,13 +46,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (grapple.grappleState == "Grapple" || isActive == false)
+        if (grapple.grappleState == "Grapple" || isActive == false || body2D.simulated == false)
         {
-            body2D.velocity = Vector2.zero;
+            if (grapple.grappleState != "Grapple")
+                body2D.velocity = Vector2.zero;
+
             animator.SetBool("Mog", false);
             return;
         }
-        else if (dash.isDashing == true)
+        else if (dash.isDashing == true || Time.timeScale == 0)
             return;
 
         float buildUpDelta = (buildup * 1000) * Time.deltaTime;
