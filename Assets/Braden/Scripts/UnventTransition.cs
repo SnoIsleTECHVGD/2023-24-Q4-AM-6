@@ -23,7 +23,12 @@ public class UnventTransition : MonoBehaviour
         camFollow.target = transform;
 
         player.GetComponent<Rigidbody2D>().simulated = false;
+        StartCoroutine(StartZoom());
+    }
 
+    IEnumerator StartZoom()
+    {
+        yield return new WaitForSeconds(0.25f);
         isZooming = true;
     }
 

@@ -161,9 +161,9 @@ public class Grapple : MonoBehaviour
         // Cancel
 
         if (Input.GetKey(KeyCode.Space))
-        {
-            body2D.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+        {    
             Cancel();
+            body2D.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         }
     }
 
