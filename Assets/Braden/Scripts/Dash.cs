@@ -60,8 +60,8 @@ public class Dash : MonoBehaviour
             else
                 dashCooldown -= Time.deltaTime;
 
-            //if (dashCooldown <= 0)
-                //sprite.color = new Color(1, 1, 1);
+            if (dashCooldown <= 0)
+                sprite.color = new Color(1, 1, 1);
         }
 
     }
@@ -90,7 +90,9 @@ public class Dash : MonoBehaviour
 
         body2D.velocity = Vector2.zero;
         body2D.AddForce(direction.normalized * dashSpeed, ForceMode2D.Impulse);
+
         animator.SetBool("Dash", true);
+        sprite.color = new Color(0.75f, 0.75f, 0.75f);
     }
 
     public void Cancel()
@@ -108,6 +110,5 @@ public class Dash : MonoBehaviour
         body2D.gravityScale = baseGravity;
 
         dashCooldown = dashCooldownTime;
-        //sprite.color = new Color(0, 1, 1);
     }
 }
