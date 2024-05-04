@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private float jumpTime = 0;
 
     public bool isActive = true;
+    public bool canJump = true;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +63,12 @@ public class PlayerController : MonoBehaviour
 
         if (volume.profile.name == "GlitchProfile")
             thisMaxSpeed /= 2;
+        else if (volume.profile.name == "FinalProfile")
+        {
+            float ratio = Mathf.Clamp(1 - volume.weight, 0.1f, 1);
+            thisMaxSpeed *= ratio;
+            animator.speed = ratio;
+        }
 
         // Left-Right Movement
         if (Input.GetKey(KeyCode.A))
@@ -103,7 +110,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isJumping == false && timeSinceGrounded <= coyotetime)
+        if (Input.GetKeyDown(KeyCode.Space) && isJumping == false && canJump == true && timeSinceGrounded <= coyotetime)
         {
             isJumping = true;
             jumpTime = 0;

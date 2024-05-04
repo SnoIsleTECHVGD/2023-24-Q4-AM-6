@@ -29,7 +29,7 @@ public class Pause : MonoBehaviour
 
     public void SetPaused(bool state)
     {
-        if (state == isPaused)
+        if (state == isPaused || (state == true && Time.timeScale != 1))
             return;
 
         isPaused = state;
