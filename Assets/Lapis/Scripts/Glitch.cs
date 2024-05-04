@@ -87,6 +87,8 @@ public class Glitch : MonoBehaviour
             player.GetComponent<PlayerController>().Enable(true);
             player.GetComponent<Rigidbody2D>().simulated = true;
             GetComponent<Animator>().SetBool("Dead", false);
+            GetComponent<HealthE>().isAlive = true;
+            GetComponent<HealthE>().health = 1;
 
             lighting.profile = mainProfile;
             lighting.weight = 1;
