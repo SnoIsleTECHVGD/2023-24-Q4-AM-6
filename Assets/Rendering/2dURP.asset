@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: RenderObjects
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   settings:
     passTag: RenderObjects
     Event: 500
@@ -20,7 +20,7 @@ MonoBehaviour:
       RenderQueueType: 1
       LayerMask:
         serializedVersion: 2
-        m_Bits: 64
+        m_Bits: 0
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: 671a60995b5bc5a4faefb947076d97aa, type: 2}
     overrideMaterialPassIndex: 0
@@ -37,7 +37,7 @@ MonoBehaviour:
     cameraSettings:
       overrideCamera: 0
       restoreCamera: 1
-      offset: {x: 0, y: 0, z: 0, w: 0}
+      offset: {x: 6.45, y: 0, z: 0, w: 1}
       cameraFieldOfView: 60.9
 --- !u!114 &11400000
 MonoBehaviour:

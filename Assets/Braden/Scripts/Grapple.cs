@@ -52,7 +52,7 @@ public class Grapple : MonoBehaviour
     // Constants
     [SerializeField]
     private float timeToDestroy = 1f;
-    public float grappleCooldownTime = 0.75f;
+    public float grappleCooldownTime = 0.15f;
     public float jumpPower = 5;
 
     private float baseGravity;
@@ -93,7 +93,9 @@ public class Grapple : MonoBehaviour
 
             if (isGrappling == true && grappleState == "")
                 CheckForGrappleHit();
-        } else
+        }
+
+        if (grappleCooldown > 0)
             grappleCooldown -= Time.deltaTime;
     }
 
@@ -113,6 +115,7 @@ public class Grapple : MonoBehaviour
                 hitPosition = currentGrapple.transform.position;
 
                 GetComponent<PolygonCollider2D>().sharedMaterial = nofriction;
+                grappleCooldown = grappleCooldownTime;
             }
             else
                 grappleState = "Wall";
@@ -171,8 +174,16 @@ public class Grapple : MonoBehaviour
 
     void Activate()
     {
-        if (isGrappling == true || canGrapple == false || grappleCooldown > 0 || dash.isDashing == true || body2D.simulated == false || Time.timeScale == 0 || controller.isActive == false)
+        if (canGrapple == false || grappleCooldown > 0 || dash.isDashing == true || body2D.simulated == false || Time.timeScale == 0 || controller.isActive == false)
             return;
+
+        if (isGrappling == true)
+        {
+            if (grappleState != "Grapple")
+                return;
+
+            Cancel();
+        }  
 
         isGrappling = true;
         grappleDuration = 0;
@@ -219,7 +230,6 @@ public class Grapple : MonoBehaviour
         if (grappleState == "Grapple")
             GetComponent<PolygonCollider2D>().sharedMaterial = playerfriction;
 
-        grappleCooldown = grappleCooldownTime;
         isGrappling = false;
         grappleState = "";
 

@@ -649,6 +649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 958236104}
   teleportPoint: {fileID: 0}
+  checkpointPoint: {fileID: 0}
   lighting: {fileID: 8578804527557394497}
   mainProfile: {fileID: 11400000, guid: 425c4de90cf71784a9356c185e6fed6f, type: 2}
   glitchProfile: {fileID: 11400000, guid: a1c5ed05a02e41b4b81ae35f3c6e98b6, type: 2}
@@ -930,7 +931,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 671a60995b5bc5a4faefb947076d97aa, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

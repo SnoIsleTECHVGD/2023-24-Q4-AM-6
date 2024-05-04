@@ -388,7 +388,7 @@ MonoBehaviour:
   grappleDuration: 0
   grappleState: 
   timeToDestroy: 0.5
-  grappleCooldownTime: 0.05
+  grappleCooldownTime: 0.1
   jumpPower: 25
   grappleSpeed: 70
   grapplePullSpeed: 25

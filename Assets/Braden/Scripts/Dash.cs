@@ -6,6 +6,7 @@ public class Dash : MonoBehaviour
 {
     [SerializeField]
     private PlayerController controller;
+    private SpriteRenderer sprite;
 
     [SerializeField]
     private Rigidbody2D body2D;
@@ -35,6 +36,7 @@ public class Dash : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
         baseGravity = body2D.gravityScale;
     }
 
@@ -50,8 +52,6 @@ public class Dash : MonoBehaviour
                 Cancel();
 
             dashLength -= Time.deltaTime;
-
-
         }
         else
         {
@@ -59,6 +59,9 @@ public class Dash : MonoBehaviour
                 dashCooldown -= Time.deltaTime * 3;
             else
                 dashCooldown -= Time.deltaTime;
+
+            //if (dashCooldown <= 0)
+                //sprite.color = new Color(1, 1, 1);
         }
 
     }
@@ -103,8 +106,8 @@ public class Dash : MonoBehaviour
         dashLength = 0;
 
         body2D.gravityScale = baseGravity;
+
         dashCooldown = dashCooldownTime;
-
-
+        //sprite.color = new Color(0, 1, 1);
     }
 }
