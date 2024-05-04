@@ -5,13 +5,14 @@ using UnityEngine;
 public class DamageE : MonoBehaviour
 {
     public int damage; 
-    public HealthE health;
+    public PlayerController player;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        print(collision.gameObject.name);
+        if (collision.gameObject.CompareTag("Player"))
         {
-            health.TakeDamage(damage);
+            player.GetComponent<HealthE>().TakeDamage(1);
         }
     }
 }
