@@ -17,6 +17,7 @@ public class ButtonUI : MonoBehaviour
     void Start()
     {
         buttonPress = GetComponent<AudioSource>();
+        Time.timeScale = 1;
     }
 
     IEnumerator GoToScene(string Scene)

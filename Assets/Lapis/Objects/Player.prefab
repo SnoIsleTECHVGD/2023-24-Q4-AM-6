@@ -1,5 +1,81 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &710847241020795504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6278583079387921388}
+  - component: {fileID: 7080359398226916057}
+  - component: {fileID: 4524227136926551199}
+  m_Layer: 0
+  m_Name: hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6278583079387921388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710847241020795504}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.005995454, y: 0.29185694, z: 0}
+  m_LocalScale: {x: 1.1276499, y: 1.1276499, z: 1.1276499}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3886527138199164521}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &7080359398226916057
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710847241020795504}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.3063651, y: 0.1831429}
+      - {x: -0.3310095, y: -0.95768243}
+      - {x: 0.36269525, y: -0.9576825}
+      - {x: 0.35213333, y: 0.19722539}
+  m_UseDelaunayMesh: 0
+--- !u!114 &4524227136926551199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710847241020795504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c19eaec4ad38544e8dd9df1502b33f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthScript: {fileID: 619231425303332856}
 --- !u!1 &4391214902408426713
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,9 +232,7 @@ GameObject:
   - component: {fileID: 2587360220011699580}
   - component: {fileID: 3919838530683762408}
   - component: {fileID: 2094906994732107040}
-  - component: {fileID: 2847774635690702377}
   - component: {fileID: 7591006302816474534}
-  - component: {fileID: 647377980611565241}
   - component: {fileID: 1344030902192472407}
   - component: {fileID: 4354597332612176637}
   - component: {fileID: 619231425303332856}
@@ -184,6 +258,7 @@ Transform:
   m_Children:
   - {fileID: 2242980086301050606}
   - {fileID: 5607611159037757885}
+  - {fileID: 6278583079387921388}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -313,8 +388,8 @@ MonoBehaviour:
   grappleDuration: 0
   grappleState: 
   timeToDestroy: 0.5
-  grappleCooldownTime: 0.1
-  jumpPower: 0
+  grappleCooldownTime: 0.05
+  jumpPower: 25
   grappleSpeed: 70
   grapplePullSpeed: 25
 --- !u!114 &2094906994732107040
@@ -337,22 +412,6 @@ MonoBehaviour:
   dashTime: 0.3
   dashCooldownTime: 1.2
   dashSpeed: 11
---- !u!70 &2847774635690702377
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7892430339821995385}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 55c55ff2964303f4f86dda707f5b9968, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 1
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.028363155, y: -0.010131177}
-  m_Size: {x: 1.4861479, y: 2.336158}
-  m_Direction: 0
 --- !u!251 &7591006302816474534
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -371,20 +430,7 @@ PlatformEffector2D:
   m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
-  m_SideArc: 1
---- !u!114 &647377980611565241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7892430339821995385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c19eaec4ad38544e8dd9df1502b33f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  respawnGlitch: {fileID: 1344030902192472407}
+  m_SideArc: 2
 --- !u!114 &1344030902192472407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,6 +487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   health: 200
+  isAlive: 1
 --- !u!60 &3522524234957047044
 PolygonCollider2D:
   m_ObjectHideFlags: 0
