@@ -1,81 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class AiSenser : MonoBehaviour
-
-    //Ask about the dumb friend and figure out how to get the Ai senser to work better with the dumb friend and not be a brat
 {
+    [SerializeField]
+    private GameObject player;
 
-    public GameObject player;
-    public LayerMask layermask;
+    [SerializeField]
+    private Light2D pointLight;
+
+    [SerializeField]
+    private LayerMask layermask;
+    private Rigidbody2D body;
+
     public float speed;
-    public float distanceBetween;
+    public float detectDistance;
 
-    private float distance;
-    private bool hasLineOfSight;
-    
-    // Start is called before the first frame update
     void Start()
     {
-        
+        body = GetComponent<Rigidbody2D>();
+
+        pointLight.pointLightOuterRadius = detectDistance;
+        pointLight.enabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-       distance = Vector2.Distance(transform.position, player.transform.position);
-        //Vector2 direction = player.transform.position - transform.position;
+        pointLight.pointLightOuterRadius = detectDistance;
 
+        float distance = Vector2.Distance(body.position, player.transform.position);
 
-
-        if (distance < distanceBetween)
+        if (CanSeePlayer(distance) == true)
         {
-            RaycastHit2D ray = Physics2D.Raycast(transform.position, player.transform.position - transform.position, 53853, layermask);
+            Vector3 movePos = PlayerMoveToPosition();
+            body.position = Vector2.MoveTowards(body.position, movePos, speed * Time.deltaTime);
+
+            /*
+            if (movePos.x > body.position.x)
+                transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+            else
+                transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);*/
+
+            pointLight.color = new Color(1, 0, 0); // red
+        } else
+        {
+            pointLight.color = new Color(1, 1, 1); // white
+        }
+    }
+
+    // Helper Function
+    bool CanSeePlayer(float distance)
+    {
+        if (distance < detectDistance)
+        {
+            RaycastHit2D ray = Physics2D.Raycast(body.position, player.transform.position - transform.position, 53853, layermask);
 
             if (ray.collider && ray.collider.gameObject.CompareTag("Player"))
             {
-                print("YES");
-                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+                if (transform.localScale.x > 0 && player.transform.position.x < transform.position.x)
+                    return true;
+                else if (transform.localScale.x < 0 && player.transform.position.x > transform.position.x)
+                    return true;
             }
         }
 
-        /*
-        bool CanSeePlayer(float distance)
-        {
-            bool val = false;
-            float castDist = distance;
-
-            Vector2 endPos
-            RaycastHit2D hit = Physics2D.Linecast(transform.position, )
-        }
-        //    GetComponentInParent<Enemies>().enabled = false;
-        //}
-        //else
-        //{
-        //    GetComponentInParent<Enemies>().enabled = true;
-        //}*/
+        return false;
     }
-    /*
-    private void FixedUpdate()
-    {
-        Debug.DrawLine(transform.position, player.transform.position);
-        RaycastHit2D ray = Physics2D.Raycast(transform.position, player.transform.position - transform.position, 53853, layermask);
-       
 
-        if (ray.collider != null)
-        {
-            print(ray.collider.gameObject.name);
-            hasLineOfSight = ray.collider.gameObject.CompareTag("Player");
-            if (hasLineOfSight)
-            {
-                print("YES");
-                Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.red);
-            }
-            else
-            {
-                Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.white);
-            }
-        }
-      }*/
+    Vector3 PlayerMoveToPosition() // prevent him trying to jump up to the player
+    {
+        return new Vector3(player.transform.position.x, body.position.y, player.transform.position.z);
+    }
 }
