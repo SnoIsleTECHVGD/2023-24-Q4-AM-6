@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HealthE : MonoBehaviour
 {
-    public int maxHealth = 10;
+    public int maxHealth = 1;
     public int health;
 
     [HideInInspector]
@@ -17,6 +17,11 @@ public class HealthE : MonoBehaviour
     {
         health = maxHealth;
     }
+    private void Update()
+    {
+        if (health <= 0)
+            Kill();
+    }
 
     // Public
 
@@ -27,7 +32,6 @@ public class HealthE : MonoBehaviour
         if (health <= 0)
             Kill();
     }
-
     public void Kill()
     {
         if (!isAlive)
