@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Pause : MonoBehaviour
 {
     public bool isPaused = false;
+    public bool canPause = true;
     public KeyCode pauseKey = KeyCode.Escape;
 
     public GameObject mainCanvas;
@@ -29,7 +30,9 @@ public class Pause : MonoBehaviour
 
     public void SetPaused(bool state)
     {
-        if (state == isPaused || (state == true && Time.timeScale != 1))
+        if (state == isPaused)
+            return;
+        else if (state == true && (Time.timeScale != 1 || canPause == false))
             return;
 
         isPaused = state;
