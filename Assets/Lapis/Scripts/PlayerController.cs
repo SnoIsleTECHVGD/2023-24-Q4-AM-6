@@ -115,6 +115,7 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             jumpTime = 0;
             body2D.AddForce(Vector2.up * jumpspeed, ForceMode2D.Impulse);
+            GetComponent<AudioSource>().Play();
         }
 
         // Speed Clamp
@@ -141,4 +142,5 @@ public class PlayerController : MonoBehaviour
 
         isActive = State;
     }
+    
 }
