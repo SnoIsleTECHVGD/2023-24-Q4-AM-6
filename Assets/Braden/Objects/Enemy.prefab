@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 453078963569133925}
   - component: {fileID: 453078963569133924}
   - component: {fileID: 453078963569133931}
+  - component: {fileID: 4980279210527875929}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -261,7 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  health: {fileID: 0}
+  player: {fileID: 0}
 --- !u!68 &453078963569133924
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -303,3 +304,23 @@ MonoBehaviour:
     m_Bits: 72
   speed: 4
   detectDistance: 7
+--- !u!95 &4980279210527875929
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453078963569133929}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a64014e37686ce44c9a70e56eeb587cf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

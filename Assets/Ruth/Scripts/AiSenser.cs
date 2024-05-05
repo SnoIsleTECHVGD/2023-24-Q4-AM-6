@@ -10,6 +10,7 @@ public class AiSenser : MonoBehaviour
 
     [SerializeField]
     private Light2D pointLight;
+    private Animator animator;
 
     [SerializeField]
     private LayerMask layermask;
@@ -21,6 +22,7 @@ public class AiSenser : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         pointLight.pointLightOuterRadius = detectDistance;
         pointLight.enabled = true;
@@ -45,9 +47,11 @@ public class AiSenser : MonoBehaviour
                 transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);*/
 
             pointLight.color = new Color(1, 0, 0); // red
+            animator.SetBool("IsMoving", true);
         } else
         {
             pointLight.color = new Color(1, 1, 1); // white
+            animator.SetBool("IsMoving", false);
         }
     }
 

@@ -4931,6 +4931,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!4 &564192049 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3886527138199164521, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
+  m_PrefabInstance: {fileID: 3780301093695885841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &796251458
 GameObject:
   m_ObjectHideFlags: 0
@@ -5146,7 +5151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 813569999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.46, y: -1.94, z: 0}
+  m_LocalPosition: {x: -1.82, y: -1.94, z: 0}
   m_LocalScale: {x: 1, y: 2.7805, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5309,7 +5314,7 @@ PrefabInstance:
     - target: {fileID: 1236198242497814938, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 564192049}
     - target: {fileID: 1236198242497814938, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
       propertyPath: setCameraOnRun
       value: 1
