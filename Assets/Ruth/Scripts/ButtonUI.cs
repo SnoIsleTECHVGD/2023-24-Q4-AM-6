@@ -31,7 +31,7 @@ public class ButtonUI : MonoBehaviour
 
         audio.Play();
         music.Stop();
-       
+
 
         //while (audio.isPlaying)
         //{
@@ -41,7 +41,9 @@ public class ButtonUI : MonoBehaviour
 
         if (Scene == "Quit")
             Application.Quit();
-        else 
+        else if (Scene == "Level1")
+            GetComponent<Glitch>().Activate();
+        else
             SceneManager.LoadScene(Scene);
 
         yield return null;

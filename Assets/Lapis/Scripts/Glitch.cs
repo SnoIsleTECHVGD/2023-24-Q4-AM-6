@@ -60,6 +60,11 @@ public class Glitch : MonoBehaviour
             player.transform.position = teleportPoint.transform.position;
             StartCoroutine(ReEnable());
         }
+        else if (glitchType == "MenuPlay")
+        {
+            SceneManager.LoadScene("Level1");
+            return;
+        }
         else if (glitchType == "Level2Transition")
         {
             SceneManager.LoadScene("Level2");

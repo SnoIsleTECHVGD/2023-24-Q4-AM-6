@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         float buildUpDelta = (buildup * 1000) * Time.deltaTime;
         float thisMaxSpeed = maxspeed;
 
-        if (volume.profile.name == "GlitchProfile")
+        if (volume.profile.name == "GlitchProfile" || volume.profile.name == "TitleProfile")
             thisMaxSpeed /= 2;
         else if (volume.profile.name == "FinalProfile")
         {

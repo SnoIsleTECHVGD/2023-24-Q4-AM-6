@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8778699343512137375
+--- !u!114 &-5945588033717128572
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,54 +9,67 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5e1dc532bcb41949b58bc4f2abfbb7e, type: 3}
-  m_Name: LensDistortion
+  m_Script: {fileID: 11500000, guid: 0b2db86121404754db890f4c8dfe81b2, type: 3}
+  m_Name: Bloom
   m_EditorClassIdentifier: 
   active: 1
+  threshold:
+    m_OverrideState: 1
+    m_Value: 0.7
   intensity:
     m_OverrideState: 1
-    m_Value: -0.5
-  xMultiplier:
+    m_Value: 131.97
+  scatter:
     m_OverrideState: 0
-    m_Value: 1
-  yMultiplier:
+    m_Value: 0.7
+  clamp:
     m_OverrideState: 0
-    m_Value: 1
-  center:
+    m_Value: 65472
+  tint:
     m_OverrideState: 0
-    m_Value: {x: 0.5, y: 0.5}
-  scale:
-    m_OverrideState: 0
-    m_Value: 1
---- !u!114 &-6877568570817137218
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
-  m_Name: Vignette
-  m_EditorClassIdentifier: 
-  active: 1
-  color:
-    m_OverrideState: 1
-    m_Value: {r: 1, g: 0, b: 0, a: 1}
-  center:
-    m_OverrideState: 1
-    m_Value: {x: 0.5, y: 0.5}
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.238
-  smoothness:
-    m_OverrideState: 0
-    m_Value: 0.2
-  rounded:
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-5724152293478023100
+  skipIterations:
+    m_OverrideState: 0
+    m_Value: 1
+  dirtTexture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+    dimension: 1
+  dirtIntensity:
+    m_OverrideState: 0
+    m_Value: 0
+--- !u!114 &-3687898825356564445
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
+  m_Name: ColorAdjustments
+  m_EditorClassIdentifier: 
+  active: 1
+  postExposure:
+    m_OverrideState: 0
+    m_Value: -0.19
+  contrast:
+    m_OverrideState: 1
+    m_Value: 45
+  colorFilter:
+    m_OverrideState: 1
+    m_Value: {r: 0.990566, g: 0, b: 0.69194925, a: 1}
+  hueShift:
+    m_OverrideState: 0
+    m_Value: -4
+  saturation:
+    m_OverrideState: 0
+    m_Value: 68
+--- !u!114 &-846633720511682886
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,7 +115,26 @@ MonoBehaviour:
   bladeRotation:
     m_OverrideState: 0
     m_Value: 43
---- !u!114 &-4156231263794122414
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: TitleProfile
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: 5062049437919040377}
+  - {fileID: -5945588033717128572}
+  - {fileID: 6981138461637689456}
+  - {fileID: 319467042163150302}
+  - {fileID: -3687898825356564445}
+  - {fileID: -846633720511682886}
+--- !u!114 &319467042163150302
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,39 +143,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b2db86121404754db890f4c8dfe81b2, type: 3}
-  m_Name: Bloom
+  m_Script: {fileID: 11500000, guid: c5e1dc532bcb41949b58bc4f2abfbb7e, type: 3}
+  m_Name: LensDistortion
   m_EditorClassIdentifier: 
   active: 1
-  threshold:
-    m_OverrideState: 1
-    m_Value: 0.7
   intensity:
     m_OverrideState: 1
-    m_Value: 131.97
-  scatter:
-    m_OverrideState: 0
-    m_Value: 0.7
-  clamp:
-    m_OverrideState: 0
-    m_Value: 65472
-  tint:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
-  highQualityFiltering:
-    m_OverrideState: 0
-    m_Value: 0
-  skipIterations:
+    m_Value: -0.57
+  xMultiplier:
     m_OverrideState: 0
     m_Value: 1
-  dirtTexture:
+  yMultiplier:
     m_OverrideState: 0
-    m_Value: {fileID: 0}
-    dimension: 1
-  dirtIntensity:
+    m_Value: 1
+  center:
     m_OverrideState: 0
-    m_Value: 0
---- !u!114 &-3493212678518131618
+    m_Value: {x: 0.29, y: 0.5}
+  scale:
+    m_OverrideState: 0
+    m_Value: 1
+--- !u!114 &5062049437919040377
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,7 +178,7 @@ MonoBehaviour:
   intensity:
     m_OverrideState: 1
     m_Value: 1
---- !u!114 &-1196274731316915010
+--- !u!114 &6981138461637689456
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,41 +187,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
-  m_Name: ColorAdjustments
+  m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
+  m_Name: Vignette
   m_EditorClassIdentifier: 
   active: 1
-  postExposure:
-    m_OverrideState: 0
-    m_Value: -0.19
-  contrast:
+  color:
     m_OverrideState: 1
-    m_Value: 45
-  colorFilter:
+    m_Value: {r: 0.60719645, g: 0.18503025, b: 0.6226415, a: 1}
+  center:
     m_OverrideState: 1
-    m_Value: {r: 0.990566, g: 0, b: 0.69194925, a: 1}
-  hueShift:
+    m_Value: {x: 0.5, y: 0.5}
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.729
+  smoothness:
     m_OverrideState: 0
-    m_Value: -4
-  saturation:
+    m_Value: 0.2
+  rounded:
     m_OverrideState: 0
-    m_Value: 68
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: GlitchProfile
-  m_EditorClassIdentifier: 
-  components:
-  - {fileID: -3493212678518131618}
-  - {fileID: -4156231263794122414}
-  - {fileID: -6877568570817137218}
-  - {fileID: -8778699343512137375}
-  - {fileID: -1196274731316915010}
-  - {fileID: -5724152293478023100}
+    m_Value: 0
