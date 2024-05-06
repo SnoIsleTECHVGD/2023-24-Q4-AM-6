@@ -27,6 +27,7 @@ public class LeverInteract : MonoBehaviour
 
     IEnumerator Interact2()
     {
+        yield return new WaitForSeconds(0.5f);
         spriteRenderer.sprite = coolSprite;
 
         yield return new WaitForSeconds(1f);

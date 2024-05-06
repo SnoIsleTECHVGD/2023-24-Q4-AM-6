@@ -38,6 +38,7 @@ public class FadeInLighting : MonoBehaviour
         if (volume.weight <= weightPoint)
         {
             volume.profile = mainProfile;
+            volume.weight = 1;
             isComplete = true;
         }
     }

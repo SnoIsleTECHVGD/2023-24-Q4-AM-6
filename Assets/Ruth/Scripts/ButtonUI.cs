@@ -10,8 +10,11 @@ public class ButtonUI : MonoBehaviour
 
     [SerializeField]
     private AudioSource music;
+
     [SerializeField]
     private AudioSource exitButton;
+
+    public AudioSource glitchWhirr;
 
     void Start()
     {
@@ -32,10 +35,10 @@ public class ButtonUI : MonoBehaviour
         music.Stop();
 
 
-        //while (audio.isPlaying)
-        //{
-        //    yield return null;
-        //}
+        /*while (audio.isPlaying)
+        {
+            yield return null;
+        }*/
 
 
         if (Scene == "Quit")
