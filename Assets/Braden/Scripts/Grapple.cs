@@ -61,10 +61,6 @@ public class Grapple : MonoBehaviour
     public float grappleSpeed = 15;
     public float grapplePullSpeed = 1f;
 
-    //SFX
-    public AudioSource grappleHit;
-    public AudioSource grappleFire;
-
     private void Start()
     {
         baseGravity = body2D.gravityScale;
@@ -114,14 +110,12 @@ public class Grapple : MonoBehaviour
         {
             if (hit.transform.gameObject.CompareTag("Grapple"))
             {
-
                 grappleState = "Grapple";
                 grappleDuration = 0;  
                 hitPosition = currentGrapple.transform.position;
 
                 GetComponent<PolygonCollider2D>().sharedMaterial = nofriction;
                 grappleCooldown = grappleCooldownTime;
-                grappleHit.Play();
             }
             else
                 grappleState = "Wall";
