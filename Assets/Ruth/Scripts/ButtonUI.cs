@@ -10,11 +10,8 @@ public class ButtonUI : MonoBehaviour
 
     [SerializeField]
     private AudioSource music;
-
     [SerializeField]
     private AudioSource exitButton;
-
-    public AudioSource glitchWhirr;
 
     void Start()
     {

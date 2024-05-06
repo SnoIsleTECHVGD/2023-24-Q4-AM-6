@@ -7721,8 +7721,8 @@ MonoBehaviour:
   isActive: 0
   initialGlitchWeight: 0.25
   teleportTime: 1.5
-  glitchSound: {fileID: 0}
-  glitchWhirr: {fileID: 0}
+  deathSound: {fileID: 0}
+  glitchWhirr: {fileID: 794554728}
 --- !u!114 &579194658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8056,6 +8056,11 @@ PrefabInstance:
 --- !u!4 &794554727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3886527138199164521, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
+  m_PrefabInstance: {fileID: 794554726}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &794554728 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6117733639687408738, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
   m_PrefabInstance: {fileID: 794554726}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &794554735 stripped

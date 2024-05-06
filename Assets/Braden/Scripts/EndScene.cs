@@ -24,6 +24,8 @@ public class EndScene : MonoBehaviour
     private GameObject fadeObject;
     [SerializeField]
     private Pause pause;
+    [SerializeField]
+    private AudioSource whirring;
 
     public float minDistance;
     public float triggerDistance;
@@ -67,12 +69,15 @@ public class EndScene : MonoBehaviour
 
                 player.GetComponent<Dash>().Cancel();
                 player.GetComponent<Dash>().canDash = false;
+
+                whirring.Play();
             }
 
             lighting.profile = glitchProfile;
 
             float ratio = distance / minDistance;
             lighting.weight = 1 - ratio;
+            whirring.volume = 1 - ratio;
         }
         else if (lighting.profile == glitchProfile)
         {
@@ -82,6 +87,8 @@ public class EndScene : MonoBehaviour
             player.GetComponent<Dash>().canDash = true;
             player.GetComponent<PlayerController>().canJump = true;
             pause.canPause = true;
+
+            whirring.Stop();
         }
     }
 
@@ -104,6 +111,7 @@ public class EndScene : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         // collapse on the floor
+        whirring.Stop();
 
         yield return new WaitForSeconds(1.5f);
 

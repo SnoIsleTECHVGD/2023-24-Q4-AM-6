@@ -13327,7 +13327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3886527138199164521, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.93
+      value: -30.33
       objectReference: {fileID: 0}
     - target: {fileID: 3886527138199164521, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
       propertyPath: m_LocalPosition.z
@@ -34659,6 +34659,7 @@ MonoBehaviour:
   fade: {fileID: 686787073}
   fadeObject: {fileID: 1273489074}
   pause: {fileID: 2142647005}
+  whirring: {fileID: 2092700336}
   minDistance: 20
   triggerDistance: 0.5
   sceneActive: 0
@@ -37613,6 +37614,11 @@ Transform:
 --- !u!1 &2092700334 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7892430339821995385, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
+  m_PrefabInstance: {fileID: 315364810}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2092700336 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8834216129193707818, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
   m_PrefabInstance: {fileID: 315364810}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2101182996

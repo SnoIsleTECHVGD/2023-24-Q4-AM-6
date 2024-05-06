@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
                 body2D.velocity = Vector2.zero;
 
             animator.SetBool("Mog", false);
+            animator.SetBool("Jumping", false);
             return;
         }
         else if (dash.isDashing == true || Time.timeScale == 0)
@@ -105,15 +106,14 @@ public class PlayerController : MonoBehaviour
 
         if (isJumping == true)
         {
-            animator.SetBool("Jumping", true);
-
             jumpTime += Time.deltaTime;
 
             if (jumpTime >= 0.25f && timeSinceGrounded == 0)
             {
                 isJumping = false;
                 animator.SetBool("Jumping", false);
-            }
+            } else if (jumpTime >= 0.35f)
+                animator.SetBool("Jumping", true);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isJumping == false && canJump == true && timeSinceGrounded <= coyotetime)
