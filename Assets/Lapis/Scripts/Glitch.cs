@@ -25,7 +25,7 @@ public class Glitch : MonoBehaviour
     public float initialGlitchWeight = 0.25f;
     public float teleportTime = 1f;
 
-    public AudioSource glitchSound;
+    public AudioSource deathSound;
     public AudioSource glitchWhirr;
 
     void Update()
@@ -48,7 +48,7 @@ public class Glitch : MonoBehaviour
 
         lighting.profile = glitchProfile;
         lighting.weight = initialGlitchWeight;
-        glitchSound.Play();
+
         glitchWhirr.Play();
     }
 
@@ -80,7 +80,9 @@ public class Glitch : MonoBehaviour
         {
             StartCoroutine(Respawn());
             return;
-        }     
+        }
+
+        glitchWhirr.Stop();
 
         lighting.profile = mainProfile;
         lighting.weight = 1;
@@ -90,6 +92,7 @@ public class Glitch : MonoBehaviour
 
     IEnumerator Respawn()
     {
+        deathSound.Play();
         yield return new WaitForSeconds(0.15f);
 
         if (checkpointPoint && checkpointPoint.GetComponent<CheckpointTrigger>().active == true)
@@ -101,7 +104,7 @@ public class Glitch : MonoBehaviour
             GetComponent<HealthE>().isAlive = true;
             GetComponent<HealthE>().health = 1;
 
-            glitchWhirr.Stop();
+            
             lighting.profile = mainProfile;
             lighting.weight = 1;
         }

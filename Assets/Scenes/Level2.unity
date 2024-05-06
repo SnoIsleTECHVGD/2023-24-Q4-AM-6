@@ -13751,7 +13751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3886527138199164521, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.6
+      value: -2.85
       objectReference: {fileID: 0}
     - target: {fileID: 3886527138199164521, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13789,12 +13789,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8834216129193707818, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
+      propertyPath: m_Pitch
+      value: 1.49
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
 --- !u!4 &794554727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3886527138199164521, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
+  m_PrefabInstance: {fileID: 794554726}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &794554743 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8834216129193707818, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
   m_PrefabInstance: {fileID: 794554726}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &898544915
@@ -26188,6 +26197,10 @@ PrefabInstance:
       propertyPath: lighting
       value: 
       objectReference: {fileID: 2098289064}
+    - target: {fileID: 1549587514346920124, guid: 29262375ebddd1a449e21918e98120f3, type: 3}
+      propertyPath: glitchWhirr
+      value: 
+      objectReference: {fileID: 794554743}
     - target: {fileID: 1549587514346920124, guid: 29262375ebddd1a449e21918e98120f3, type: 3}
       propertyPath: teleportPoint
       value: 

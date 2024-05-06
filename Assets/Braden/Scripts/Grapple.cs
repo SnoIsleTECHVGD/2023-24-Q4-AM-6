@@ -74,11 +74,7 @@ public class Grapple : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(button))
-        {
             Activate();
-            grappleFire.Play();
-        }
-        
 
         if (isGrappling == true)
         {
@@ -230,6 +226,8 @@ public class Grapple : MonoBehaviour
 
         currentGrapple.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
         shoulder.rotation = Quaternion.Euler(0f, 0f, rot_z + 90);
+
+        grappleFire.Play();
     }
 
     public void Cancel()
