@@ -18738,5 +18738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleProfile: {fileID: 11400000, guid: 35fe65f7f12a43944bb6790ad0bc1a81, type: 2}
-  weightPoint: 0.15
+  weightPoint: 0.25
   fadeSpeed: 0.6
+  startVolume: 0.5
+  fadeBackSpeed: 1.5

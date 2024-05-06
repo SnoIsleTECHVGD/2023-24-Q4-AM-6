@@ -26171,8 +26171,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleProfile: {fileID: 11400000, guid: a1c5ed05a02e41b4b81ae35f3c6e98b6, type: 2}
-  weightPoint: 0.15
+  weightPoint: 0.25
   fadeSpeed: 0.6
+  startVolume: 0.5
+  fadeBackSpeed: 1.5
 --- !u!1001 &1549587514077083526
 PrefabInstance:
   m_ObjectHideFlags: 0

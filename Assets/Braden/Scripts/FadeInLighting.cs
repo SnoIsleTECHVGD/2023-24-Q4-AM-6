@@ -15,7 +15,11 @@ public class FadeInLighting : MonoBehaviour
     private float weightPoint = 0.15f;
 
     public float fadeSpeed = 0.6f;
+    public float startVolume = 0.5f;
+    public float fadeBackSpeed = 1.5f;
+
     private bool isComplete = false;
+    private bool isDoneFadingBack = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,16 +34,22 @@ public class FadeInLighting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isComplete)
-            return;
-
-        volume.weight -= (Time.deltaTime * fadeSpeed);
-
-        if (volume.weight <= weightPoint)
+        if (!isComplete)
         {
-            volume.profile = mainProfile;
-            volume.weight = 1;
-            isComplete = true;
+            volume.weight -= (Time.deltaTime * fadeSpeed);
+
+            if (volume.weight <= weightPoint)
+            {
+                volume.profile = mainProfile;
+                volume.weight = startVolume;
+                isComplete = true;
+            }
+        } else if (!isDoneFadingBack)
+        {
+            volume.weight += (Time.deltaTime * fadeBackSpeed);
+
+            if (volume.weight >= 1)
+                isDoneFadingBack = true;
         }
     }
 }
