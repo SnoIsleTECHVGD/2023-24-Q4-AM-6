@@ -119,7 +119,7 @@ public class Grapple : MonoBehaviour
                 grappleDuration = 0;  
                 hitPosition = currentGrapple.transform.position;
 
-                GetComponent<PolygonCollider2D>().sharedMaterial = nofriction;
+                GetComponent<BoxCollider2D>().sharedMaterial = nofriction;
                 grappleCooldown = grappleCooldownTime;
                 grappleHit.Play();
             }
@@ -236,7 +236,7 @@ public class Grapple : MonoBehaviour
             return;
 
         if (grappleState == "Grapple")
-            GetComponent<PolygonCollider2D>().sharedMaterial = playerfriction;
+            GetComponent<BoxCollider2D>().sharedMaterial = playerfriction;
 
         isGrappling = false;
         grappleState = "";
