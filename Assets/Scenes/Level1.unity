@@ -18296,6 +18296,10 @@ PrefabInstance:
       propertyPath: canGrapple
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6117733639687408738, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7892430339821995385, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
       propertyPath: m_Name
       value: Player
@@ -18310,6 +18314,11 @@ PrefabInstance:
 --- !u!82 &1465423978 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8834216129193707818, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
+  m_PrefabInstance: {fileID: 1465423977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1465423979 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6117733639687408738, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
   m_PrefabInstance: {fileID: 1465423977}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1989708197
@@ -18738,6 +18747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleProfile: {fileID: 11400000, guid: 35fe65f7f12a43944bb6790ad0bc1a81, type: 2}
+  glitchWhirr: {fileID: 1465423979}
   weightPoint: 0.25
   fadeSpeed: 0.6
   startVolume: 0.5

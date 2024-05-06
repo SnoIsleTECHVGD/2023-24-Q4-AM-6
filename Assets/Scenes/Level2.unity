@@ -13785,6 +13785,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6117733639687408738, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7892430339821995385, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
       propertyPath: m_Name
       value: Player
@@ -13799,6 +13803,11 @@ PrefabInstance:
 --- !u!4 &794554727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3886527138199164521, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
+  m_PrefabInstance: {fileID: 794554726}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &794554728 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6117733639687408738, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
   m_PrefabInstance: {fileID: 794554726}
   m_PrefabAsset: {fileID: 0}
 --- !u!82 &794554743 stripped
@@ -26171,6 +26180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleProfile: {fileID: 11400000, guid: a1c5ed05a02e41b4b81ae35f3c6e98b6, type: 2}
+  glitchWhirr: {fileID: 794554728}
   weightPoint: 0.25
   fadeSpeed: 0.6
   startVolume: 0.5

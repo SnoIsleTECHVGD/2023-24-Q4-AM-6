@@ -12,6 +12,9 @@ public class FadeInLighting : MonoBehaviour
     private VolumeProfile mainProfile;
 
     [SerializeField]
+    private AudioSource glitchWhirr;
+
+    [SerializeField]
     private float weightPoint = 0.15f;
 
     public float fadeSpeed = 0.6f;
@@ -29,6 +32,12 @@ public class FadeInLighting : MonoBehaviour
 
         volume.profile = titleProfile;
         volume.weight = 1;
+
+        if (glitchWhirr)
+        {
+            glitchWhirr.pitch = -0.7f;
+            glitchWhirr.Play();
+        }
     }
 
     // Update is called once per frame
@@ -49,7 +58,16 @@ public class FadeInLighting : MonoBehaviour
             volume.weight += (Time.deltaTime * fadeBackSpeed);
 
             if (volume.weight >= 1)
+            {
                 isDoneFadingBack = true;
+
+                if (glitchWhirr)
+                {
+                    glitchWhirr.Stop();
+                    glitchWhirr.loop = false;
+                    glitchWhirr.pitch = 1;
+                }
+            } 
         }
     }
 }

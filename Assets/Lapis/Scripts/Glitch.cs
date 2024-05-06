@@ -50,6 +50,9 @@ public class Glitch : MonoBehaviour
         lighting.weight = initialGlitchWeight;
 
         glitchWhirr.Play();
+
+        if (glitchType == "Respawn")
+            deathSound.Play();
     }
 
     public void FinishActivate()
@@ -68,7 +71,6 @@ public class Glitch : MonoBehaviour
         else if (glitchType == "MenuPlay")
         {
             SceneManager.LoadScene("Level1");
-
             return;
         }
         else if (glitchType == "Level2Transition")
@@ -92,7 +94,6 @@ public class Glitch : MonoBehaviour
 
     IEnumerator Respawn()
     {
-        deathSound.Play();
         yield return new WaitForSeconds(0.15f);
 
         if (checkpointPoint && checkpointPoint.GetComponent<CheckpointTrigger>().active == true)
@@ -103,7 +104,6 @@ public class Glitch : MonoBehaviour
             GetComponent<Animator>().SetBool("Dead", false);
             GetComponent<HealthE>().isAlive = true;
             GetComponent<HealthE>().health = 1;
-
             
             lighting.profile = mainProfile;
             lighting.weight = 1;
