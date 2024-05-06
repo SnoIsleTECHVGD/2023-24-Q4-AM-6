@@ -102,11 +102,14 @@ public class PlayerController : MonoBehaviour
 
         if (isJumping == true)
         {
+            animator.SetBool("Jumping", true);
+
             jumpTime += Time.deltaTime;
 
             if (jumpTime >= 0.25f && timeSinceGrounded == 0)
             {
                 isJumping = false;
+                animator.SetBool("Jumping", false);
             }
         }
 

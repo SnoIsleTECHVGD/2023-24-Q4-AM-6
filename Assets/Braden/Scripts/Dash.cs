@@ -90,7 +90,7 @@ public class Dash : MonoBehaviour
 
         body2D.velocity = Vector2.zero;
         body2D.AddForce(direction.normalized * dashSpeed, ForceMode2D.Impulse);
-
+        animator.SetBool("Jumping", false);
         animator.SetBool("Dash", true);
         sprite.color = new Color(0.75f, 0.75f, 0.75f);
     }
