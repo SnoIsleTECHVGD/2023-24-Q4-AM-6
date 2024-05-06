@@ -102,7 +102,6 @@ public class PlayerController : MonoBehaviour
 
         if (isJumping == true)
         {
-            animator.SetBool("Jumping", true);
 
             jumpTime += Time.deltaTime;
 
@@ -115,6 +114,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isJumping == false && canJump == true && timeSinceGrounded <= coyotetime)
         {
+            animator.SetBool("Jumping", true);
             isJumping = true;
             jumpTime = 0;
             body2D.AddForce(Vector2.up * jumpspeed, ForceMode2D.Impulse);
@@ -147,3 +147,6 @@ public class PlayerController : MonoBehaviour
     }
     
 }
+
+
+// make unity switch animations when the players y-velocity is in the negatives, if that doesn't work or is scuft change back to using exit time (annoying!!!)
