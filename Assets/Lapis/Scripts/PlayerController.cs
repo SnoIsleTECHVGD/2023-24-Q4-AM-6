@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour
     public bool isActive = true;
     public bool canJump = true;
 
+    //SFX
+    public AudioSource jumpSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -118,7 +121,7 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             jumpTime = 0;
             body2D.AddForce(Vector2.up * jumpspeed, ForceMode2D.Impulse);
-            GetComponent<AudioSource>().Play();
+            jumpSound.Play();
         }
 
         // Speed Clamp

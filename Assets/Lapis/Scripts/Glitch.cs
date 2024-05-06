@@ -25,6 +25,9 @@ public class Glitch : MonoBehaviour
     public float initialGlitchWeight = 0.25f;
     public float teleportTime = 1f;
 
+    public AudioSource glitchSound;
+    public AudioSource glitchWhirr;
+
     void Update()
     {
         if (isActive == true)
@@ -45,6 +48,8 @@ public class Glitch : MonoBehaviour
 
         lighting.profile = glitchProfile;
         lighting.weight = initialGlitchWeight;
+        glitchSound.Play();
+        glitchWhirr.Play();
     }
 
     public void FinishActivate()
@@ -63,6 +68,7 @@ public class Glitch : MonoBehaviour
         else if (glitchType == "MenuPlay")
         {
             SceneManager.LoadScene("Level1");
+
             return;
         }
         else if (glitchType == "Level2Transition")
@@ -95,6 +101,7 @@ public class Glitch : MonoBehaviour
             GetComponent<HealthE>().isAlive = true;
             GetComponent<HealthE>().health = 1;
 
+            glitchWhirr.Stop();
             lighting.profile = mainProfile;
             lighting.weight = 1;
         }

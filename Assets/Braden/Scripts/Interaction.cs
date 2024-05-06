@@ -17,6 +17,7 @@ public class Interaction : MonoBehaviour
     [HideInInspector]
     public bool isActive = false;
 
+    public AudioSource switchSound;
     // Update is called once per frame
     void Update()
     {
@@ -34,6 +35,7 @@ public class Interaction : MonoBehaviour
             }    
 
             interactEvent.Invoke();
+            switchSound.Play();
         }
     }
 
