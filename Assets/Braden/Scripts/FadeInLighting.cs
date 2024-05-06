@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class FadeInLevel1 : MonoBehaviour
+public class FadeInLighting : MonoBehaviour
 {
     private Volume volume;
 
@@ -12,9 +12,9 @@ public class FadeInLevel1 : MonoBehaviour
     private VolumeProfile mainProfile;
 
     [SerializeField]
-    private float weightPoint;
+    private float weightPoint = 0.15f;
 
-    public float fadeSpeed = 1;
+    public float fadeSpeed = 0.6f;
     private bool isComplete = false;
 
     // Start is called before the first frame update
