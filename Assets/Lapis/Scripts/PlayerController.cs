@@ -104,16 +104,17 @@ public class PlayerController : MonoBehaviour
         else
             timeSinceGrounded += Time.deltaTime;
 
+        if (timeSinceGrounded >= 0.35f)
+            animator.SetBool("Jumping", true);
+        else
+            animator.SetBool("Jumping", false);
+
         if (isJumping == true)
         {
             jumpTime += Time.deltaTime;
 
             if (jumpTime >= 0.25f && timeSinceGrounded == 0)
-            {
                 isJumping = false;
-                animator.SetBool("Jumping", false);
-            } else if (jumpTime >= 0.35f)
-                animator.SetBool("Jumping", true);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isJumping == false && canJump == true && timeSinceGrounded <= coyotetime)
