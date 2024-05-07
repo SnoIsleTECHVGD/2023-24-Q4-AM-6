@@ -305,6 +305,7 @@ MonoBehaviour:
     m_Bits: 72
   speed: 4
   detectDistance: 7
+  soundPlayed: 0
   alarmSound: {fileID: 6363818262960568973}
 --- !u!95 &4980279210527875929
 Animator:
@@ -338,7 +339,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4ae466715c772eb41885be6b644984b1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.642
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -8050,10 +8050,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2098289064}
     - target: {fileID: 1344030902192472407, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
-      propertyPath: teleportTime
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1344030902192472407, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
       propertyPath: glitchProfile
       value: 
       objectReference: {fileID: 11400000, guid: 63c8600d223f82d4a9a20469427866d9, type: 2}
