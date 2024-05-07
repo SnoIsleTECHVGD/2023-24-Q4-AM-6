@@ -127,9 +127,12 @@ public class EndScene : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         // collapse on the floor
+        player.GetComponent<Animator>().SetBool("finaldeath", true);
+        player.GetComponent<Animator>().speed = 1;
+
         whirring.Stop();
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3.5f);
 
         fade.color = new Color(0, 0, 0, 0);
         fadeObject.SetActive(true);
