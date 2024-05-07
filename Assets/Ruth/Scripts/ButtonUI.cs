@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class ButtonUI : MonoBehaviour
 {
-    [SerializeField]
-    private AudioSource music;
-
     void Start()
     {
         Time.timeScale = 1;
@@ -16,7 +13,7 @@ public class ButtonUI : MonoBehaviour
 
     void GoToScene(string Scene)
     {
-        music.Stop();
+        GlobalGame.Instance.menuMusic.Stop();
 
         if (Scene == "Quit")
             Application.Quit();
