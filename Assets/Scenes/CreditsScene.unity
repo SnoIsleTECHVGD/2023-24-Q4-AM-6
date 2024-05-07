@@ -568,7 +568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: -1.45, y: -2}
+  m_EffectDistance: {x: -0.99, y: -1.33}
   m_UseGraphicAlpha: 1
 --- !u!114 &433740537
 MonoBehaviour:
@@ -583,7 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8679245, g: 0.35926923, b: 0.33161268, a: 1}
+  m_Color: {r: 0.509434, g: 0.35690516, b: 0.252314, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
