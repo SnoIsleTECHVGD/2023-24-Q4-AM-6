@@ -33,6 +33,9 @@ public class Dash : MonoBehaviour
     [SerializeField]
     private float dashSpeed = 10;
 
+    //SFX
+    public AudioSource dashSound;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -93,6 +96,7 @@ public class Dash : MonoBehaviour
         animator.SetBool("Jumping", false);
         animator.SetBool("Dash", true);
         sprite.color = new Color(0.75f, 0.75f, 0.75f);
+        dashSound.Play();
     }
 
     public void Cancel()
