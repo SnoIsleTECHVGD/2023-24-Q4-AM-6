@@ -96,13 +96,21 @@ public class PlayerController : MonoBehaviour
         // Jumping
 
         if (CheckGrounding())
+        {
+            animator.SetBool("Jumping", false);
             timeSinceGrounded = 0;
+        }
+
         else
+        {
+            animator.SetBool("Jumping", true);
             timeSinceGrounded += Time.deltaTime;
+        }
+         
+
 
         if (isJumping == true)
         {
-            animator.SetBool("Jumping", true);
 
             jumpTime += Time.deltaTime;
 
@@ -115,6 +123,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isJumping == false && canJump == true && timeSinceGrounded <= coyotetime)
         {
+            animator.SetBool("Jumping", true);
             isJumping = true;
             jumpTime = 0;
             body2D.AddForce(Vector2.up * jumpspeed, ForceMode2D.Impulse);
@@ -123,6 +132,8 @@ public class PlayerController : MonoBehaviour
 
         // Speed Clamp
         body2D.velocity = new Vector2(Mathf.Clamp(body2D.velocity.x, -thisMaxSpeed, thisMaxSpeed), Mathf.Clamp(body2D.velocity.y, -jumpspeed, jumpspeed));
+
+        animator.SetFloat("YVelocity", body2D.velocity.y);
     }
 
     // Public

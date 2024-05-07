@@ -70,7 +70,11 @@ public class Grapple : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(button))
+        {
+            animator.SetBool("Jumping", false);
             Activate();
+        }
+            
 
         if (isGrappling == true)
         {
@@ -174,6 +178,7 @@ public class Grapple : MonoBehaviour
 
     void Activate()
     {
+
         if (canGrapple == false || grappleCooldown > 0 || dash.isDashing == true || body2D.simulated == false || Time.timeScale == 0 || controller.isActive == false)
             return;
 

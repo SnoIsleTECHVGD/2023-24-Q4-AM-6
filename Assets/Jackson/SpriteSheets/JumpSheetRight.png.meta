@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d61b29e7003c46b4c869f175e36a532a
+guid: 82137995c9201ba4ea5900822809bfc9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -107,127 +107,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerJumpSpriteSheet_0
+      name: JumpSheetRight_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 36.833332
-        height: 40
+        width: 32
+        height: 38
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9ce077801d40a349809b994639c78c6
-      internalID: -82845641
+      spriteID: 926d67d6c5175ce41ac200b3a714bf8d
+      internalID: -1608584322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerJumpSpriteSheet_1
+      name: JumpSheetRight_1
       rect:
         serializedVersion: 2
-        x: 36
+        x: 32
         y: 0
-        width: 36.833332
-        height: 40
+        width: 32
+        height: 38
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa0a6a0ce5eeafa4f9bb2d811192439f
-      internalID: 1378021471
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerJumpSpriteSheet_2
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 0
-        width: 36.833332
-        height: 40
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e7b8d6ca67df31a4289cd0361da7103d
-      internalID: -2007370757
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerJumpSpriteSheet_3
-      rect:
-        serializedVersion: 2
-        x: 108
-        y: 0
-        width: 36.833332
-        height: 40
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 870be8457c44c904f92d18d64e039dc6
-      internalID: 799850040
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerJumpSpriteSheet_4
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 36.833332
-        height: 40
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: da202c1caf25cf24baec2e661d55933a
-      internalID: 541654493
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerJumpSpriteSheet_5
-      rect:
-        serializedVersion: 2
-        x: 180
-        y: 0
-        width: 36.833332
-        height: 40
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63da855eeba4950488ee088075f64a35
-      internalID: 89861567
+      spriteID: 6d8003c4375d27548adb8868b5357d64
+      internalID: -1679563594
       vertices: []
       indices: 
       edges: []
@@ -243,12 +159,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlayerJumpSpriteSheet_2: -2007370757
-      PlayerJumpSpriteSheet_5: 89861567
-      PlayerJumpSpriteSheet_0: -82845641
-      PlayerJumpSpriteSheet_3: 799850040
-      PlayerJumpSpriteSheet_1: 1378021471
-      PlayerJumpSpriteSheet_4: 541654493
+      JumpSheetRight_1: -1679563594
+      JumpSheetRight_0: -1608584322
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
