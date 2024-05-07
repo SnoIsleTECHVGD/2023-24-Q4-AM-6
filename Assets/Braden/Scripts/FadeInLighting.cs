@@ -34,10 +34,7 @@ public class FadeInLighting : MonoBehaviour
         volume.weight = 1;
 
         if (glitchWhirr)
-        {
-            glitchWhirr.pitch = -0.7f;
             glitchWhirr.Play();
-        }
     }
 
     // Update is called once per frame
@@ -52,6 +49,7 @@ public class FadeInLighting : MonoBehaviour
                 volume.profile = mainProfile;
                 volume.weight = startVolume;
                 isComplete = true;
+                glitchWhirr.loop = false;
             }
         } else if (!isDoneFadingBack)
         {
@@ -62,11 +60,7 @@ public class FadeInLighting : MonoBehaviour
                 isDoneFadingBack = true;
 
                 if (glitchWhirr)
-                {
                     glitchWhirr.Stop();
-                    glitchWhirr.loop = false;
-                    glitchWhirr.pitch = 1;
-                }
             } 
         }
     }

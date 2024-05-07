@@ -52,8 +52,8 @@ public class PlayerController : MonoBehaviour
     {
         if (grapple.grappleState == "Grapple" || isActive == false || body2D.simulated == false)
         {
-            if (grapple.grappleState != "Grapple")
-                body2D.velocity = Vector2.zero;
+            //if (grapple.grappleState != "Grapple")
+                //body2D.velocity = Vector2.zero;
 
             animator.SetBool("Mog", false);
             animator.SetBool("Jumping", false);

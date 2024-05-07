@@ -660,7 +660,7 @@ MonoBehaviour:
   initialGlitchWeight: 0.25
   teleportTime: 2
   deathSound: {fileID: 0}
-  glitchWhirr: {fileID: 1465423978}
+  glitchWhirr: {fileID: 1465423993}
 --- !u!212 &472792449
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18298,7 +18298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6117733639687408738, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
       propertyPath: Loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7892430339821995385, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
       propertyPath: m_Name
@@ -18311,12 +18311,12 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
---- !u!82 &1465423978 stripped
+--- !u!82 &1465423979 stripped
 AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8834216129193707818, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
+  m_CorrespondingSourceObject: {fileID: 916404431840482353, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
   m_PrefabInstance: {fileID: 1465423977}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &1465423979 stripped
+--- !u!82 &1465423993 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 6117733639687408738, guid: f4369ffd8a5749640b2539e48ed562da, type: 3}
   m_PrefabInstance: {fileID: 1465423977}
