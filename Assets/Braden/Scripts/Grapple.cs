@@ -149,14 +149,18 @@ public class Grapple : MonoBehaviour
         Vector3 goal = hitPosition - diff;
         Vector2 goalv2 = new Vector2(goal.x, goal.y);
 
-        body2D.gravityScale = 0;
-
         // Pull
 
         Vector2 target = (goalv2 - body2D.position);
-        target.Normalize();
 
-        body2D.velocity = target * (grapplePullSpeed / 1.5f);
+        if (target.magnitude > 0.35f || body2D.gravityScale != 0)
+        {
+            target.Normalize();
+            body2D.velocity = target * (grapplePullSpeed / 1.5f);
+        } else
+            body2D.velocity = Vector2.zero;
+
+        body2D.gravityScale = 0;
         grappleLine.SetPositions(new Vector3[] { shoulder.position, hitPosition });
 
         // Update Arm
