@@ -18,6 +18,7 @@ public class AiSenser : MonoBehaviour
 
     public float speed;
     public float detectDistance;
+    public bool soundPlayed;
 
     //SFX
     public AudioSource alarmSound;
@@ -51,10 +52,16 @@ public class AiSenser : MonoBehaviour
 
             pointLight.color = new Color(1, 0, 0); // red
             animator.SetBool("IsMoving", true);
+            if (soundPlayed == false)
+            {
+                soundPlayed = true;
+                alarmSound.Play();
+            }
         } else
         {
             pointLight.color = new Color(1, 1, 1); // white
             animator.SetBool("IsMoving", false);
+            soundPlayed = false;
         }
     }
 
