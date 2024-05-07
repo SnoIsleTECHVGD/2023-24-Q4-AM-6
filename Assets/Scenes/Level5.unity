@@ -34355,6 +34355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2092700334}
   lighting: {fileID: 339805968}
+  camera: {fileID: 339805972}
   mainProfile: {fileID: 11400000, guid: 425c4de90cf71784a9356c185e6fed6f, type: 2}
   glitchProfile: {fileID: 11400000, guid: 95a30c0355915ab409794b85200c5f15, type: 2}
   fade: {fileID: 686787073}
@@ -34365,6 +34366,7 @@ MonoBehaviour:
   triggerDistance: 0.5
   sceneActive: 0
   fadeSpeed: 0.8
+  finalZoomSize: 3.5
 --- !u!4 &1577557609
 Transform:
   m_ObjectHideFlags: 0

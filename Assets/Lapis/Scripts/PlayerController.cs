@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
             thisMaxSpeed /= 2;
         else if (volume.profile.name == "FinalProfile")
         {
-            float ratio = Mathf.Clamp(1 - volume.weight, 0.1f, 1);
+            float ratio = Mathf.Clamp(0.8f - volume.weight, 0.05f, 1);
             thisMaxSpeed *= ratio;
             animator.speed = ratio;
         }

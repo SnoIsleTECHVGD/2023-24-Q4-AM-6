@@ -12,6 +12,8 @@ public class EndScene : MonoBehaviour
 
     [SerializeField]
     private Volume lighting;
+    [SerializeField]
+    private Camera camera;
 
     [SerializeField]
     private VolumeProfile mainProfile;
@@ -34,7 +36,15 @@ public class EndScene : MonoBehaviour
     public bool sceneActive = false;
 
     public float fadeSpeed = 1;
+    public float finalZoomSize = 3;
+
     private bool isFading = false;
+    private float defaultSize;
+
+    private void Start()
+    {
+        defaultSize = camera.orthographicSize;
+    }
 
     // Update is called once per frame
     void Update()
@@ -77,8 +87,10 @@ public class EndScene : MonoBehaviour
             lighting.profile = glitchProfile;
 
             float ratio = distance / minDistance;
+
             lighting.weight = 1 - ratio;
             whirring.volume = 1 - ratio;
+            camera.orthographicSize = finalZoomSize + ((defaultSize - finalZoomSize) * ratio);
         }
         else if (lighting.profile == glitchProfile)
         {
@@ -88,6 +100,8 @@ public class EndScene : MonoBehaviour
             player.GetComponent<Dash>().canDash = true;
             player.GetComponent<PlayerController>().canJump = true;
             pause.canPause = true;
+
+            camera.orthographicSize = defaultSize;
 
             whirring.Stop();
             GlobalGame.Instance.gameMusic.UnPause();
