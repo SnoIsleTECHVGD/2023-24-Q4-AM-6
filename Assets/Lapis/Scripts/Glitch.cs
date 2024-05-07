@@ -61,6 +61,7 @@ public class Glitch : MonoBehaviour
             return;
 
         isActive = false;
+        glitchWhirr.Stop();
 
         if (glitchType == "Teleport" || glitchType == "TeleportNoCollide")
         {
@@ -83,8 +84,6 @@ public class Glitch : MonoBehaviour
             StartCoroutine(Respawn());
             return;
         }
-
-        glitchWhirr.Stop();
 
         lighting.profile = mainProfile;
         lighting.weight = 1;

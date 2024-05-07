@@ -71,6 +71,7 @@ public class EndScene : MonoBehaviour
                 player.GetComponent<Dash>().canDash = false;
 
                 whirring.Play();
+                GlobalGame.Instance.gameMusic.Pause();
             }
 
             lighting.profile = glitchProfile;
@@ -89,6 +90,7 @@ public class EndScene : MonoBehaviour
             pause.canPause = true;
 
             whirring.Stop();
+            GlobalGame.Instance.gameMusic.UnPause();
         }
     }
 
@@ -113,7 +115,7 @@ public class EndScene : MonoBehaviour
         // collapse on the floor
         whirring.Stop();
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
 
         fade.color = new Color(0, 0, 0, 0);
         fadeObject.SetActive(true);
@@ -122,7 +124,7 @@ public class EndScene : MonoBehaviour
 
     IEnumerator Activate3()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("CreditsScene");
     }
 }
