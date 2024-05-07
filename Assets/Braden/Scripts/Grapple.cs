@@ -61,6 +61,10 @@ public class Grapple : MonoBehaviour
     public float grappleSpeed = 15;
     public float grapplePullSpeed = 1f;
 
+    //SFX
+    public AudioSource grappleHit;
+    public AudioSource grappleFire;
+
     private void Start()
     {
         baseGravity = body2D.gravityScale;
@@ -114,12 +118,14 @@ public class Grapple : MonoBehaviour
         {
             if (hit.transform.gameObject.CompareTag("Grapple"))
             {
+
                 grappleState = "Grapple";
                 grappleDuration = 0;  
                 hitPosition = currentGrapple.transform.position;
 
-                GetComponent<PolygonCollider2D>().sharedMaterial = nofriction;
+                GetComponent<BoxCollider2D>().sharedMaterial = nofriction;
                 grappleCooldown = grappleCooldownTime;
+                grappleHit.Play();
             }
             else
                 grappleState = "Wall";
@@ -147,14 +153,18 @@ public class Grapple : MonoBehaviour
         Vector3 goal = hitPosition - diff;
         Vector2 goalv2 = new Vector2(goal.x, goal.y);
 
-        body2D.gravityScale = 0;
-
         // Pull
 
         Vector2 target = (goalv2 - body2D.position);
-        target.Normalize();
 
-        body2D.velocity = target * (grapplePullSpeed / 1.5f);
+        if (target.magnitude > 0.35f || body2D.gravityScale != 0)
+        {
+            target.Normalize();
+            body2D.velocity = target * (grapplePullSpeed / 1.5f);
+        } else
+            body2D.velocity = Vector2.zero;
+
+        body2D.gravityScale = 0;
         grappleLine.SetPositions(new Vector3[] { shoulder.position, hitPosition });
 
         // Update Arm
@@ -214,6 +224,7 @@ public class Grapple : MonoBehaviour
         }
 
         animator.SetBool("Grapple", true);
+        animator.SetBool("Jumping", false);
         arm.enabled = true;
 
         // Make the Grapple
@@ -225,6 +236,8 @@ public class Grapple : MonoBehaviour
 
         currentGrapple.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
         shoulder.rotation = Quaternion.Euler(0f, 0f, rot_z + 90);
+
+        grappleFire.Play();
     }
 
     public void Cancel()
@@ -233,7 +246,7 @@ public class Grapple : MonoBehaviour
             return;
 
         if (grappleState == "Grapple")
-            GetComponent<PolygonCollider2D>().sharedMaterial = playerfriction;
+            GetComponent<BoxCollider2D>().sharedMaterial = playerfriction;
 
         isGrappling = false;
         grappleState = "";

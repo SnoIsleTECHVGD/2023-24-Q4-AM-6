@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour
     public bool isActive = true;
     public bool canJump = true;
 
+    //SFX
+    public AudioSource jumpSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,10 +52,11 @@ public class PlayerController : MonoBehaviour
     {
         if (grapple.grappleState == "Grapple" || isActive == false || body2D.simulated == false)
         {
-            if (grapple.grappleState != "Grapple")
-                body2D.velocity = Vector2.zero;
+            //if (grapple.grappleState != "Grapple")
+                //body2D.velocity = Vector2.zero;
 
             animator.SetBool("Mog", false);
+            animator.SetBool("Jumping", false);
             return;
         }
         else if (dash.isDashing == true || Time.timeScale == 0)
@@ -65,7 +69,7 @@ public class PlayerController : MonoBehaviour
             thisMaxSpeed /= 2;
         else if (volume.profile.name == "FinalProfile")
         {
-            float ratio = Mathf.Clamp(1 - volume.weight, 0.1f, 1);
+            float ratio = Mathf.Clamp(0.8f - volume.weight, 0.05f, 1);
             thisMaxSpeed *= ratio;
             animator.speed = ratio;
         }
@@ -108,17 +112,12 @@ public class PlayerController : MonoBehaviour
         }
          
 
-
         if (isJumping == true)
         {
-
             jumpTime += Time.deltaTime;
 
             if (jumpTime >= 0.25f && timeSinceGrounded == 0)
-            {
                 isJumping = false;
-                animator.SetBool("Jumping", false);
-            }
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isJumping == false && canJump == true && timeSinceGrounded <= coyotetime)
@@ -127,7 +126,7 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             jumpTime = 0;
             body2D.AddForce(Vector2.up * jumpspeed, ForceMode2D.Impulse);
-            GetComponent<AudioSource>().Play();
+            jumpSound.Play();
         }
 
         // Speed Clamp

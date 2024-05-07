@@ -126,10 +126,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   teleportPoint: {fileID: 0}
+  checkpointPoint: {fileID: 0}
   lighting: {fileID: 0}
   mainProfile: {fileID: 11400000, guid: 425c4de90cf71784a9356c185e6fed6f, type: 2}
   glitchProfile: {fileID: 11400000, guid: a1c5ed05a02e41b4b81ae35f3c6e98b6, type: 2}
   glitchType: Teleport
   isActive: 0
   initialGlitchWeight: 0.25
-  teleportTime: 1.2
+  teleportTime: 1.5
+  deathSound: {fileID: 0}
+  glitchWhirr: {fileID: 0}

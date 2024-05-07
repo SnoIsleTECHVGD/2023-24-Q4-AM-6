@@ -18,6 +18,10 @@ public class AiSenser : MonoBehaviour
 
     public float speed;
     public float detectDistance;
+    public bool soundPlayed;
+
+    //SFX
+    public AudioSource alarmSound;
 
     void Start()
     {
@@ -48,10 +52,16 @@ public class AiSenser : MonoBehaviour
 
             pointLight.color = new Color(1, 0, 0); // red
             animator.SetBool("IsMoving", true);
+            if (soundPlayed == false)
+            {
+                soundPlayed = true;
+                alarmSound.Play();
+            }
         } else
         {
             pointLight.color = new Color(1, 1, 1); // white
             animator.SetBool("IsMoving", false);
+            soundPlayed = false;
         }
     }
 
@@ -65,9 +75,14 @@ public class AiSenser : MonoBehaviour
             if (ray.collider && ray.collider.gameObject.CompareTag("Player"))
             {
                 if (transform.localScale.x > 0 && player.transform.position.x < transform.position.x)
+                {
                     return true;
+                }
+
                 else if (transform.localScale.x < 0 && player.transform.position.x > transform.position.x)
+                {
                     return true;
+                }
             }
         }
 

@@ -25,6 +25,9 @@ public class Glitch : MonoBehaviour
     public float initialGlitchWeight = 0.25f;
     public float teleportTime = 1f;
 
+    public AudioSource deathSound;
+    public AudioSource glitchWhirr;
+
     void Update()
     {
         if (isActive == true)
@@ -45,6 +48,11 @@ public class Glitch : MonoBehaviour
 
         lighting.profile = glitchProfile;
         lighting.weight = initialGlitchWeight;
+
+        glitchWhirr.Play();
+
+        if (glitchType == "Respawn")
+            deathSound.Play();
     }
 
     public void FinishActivate()
@@ -53,6 +61,7 @@ public class Glitch : MonoBehaviour
             return;
 
         isActive = false;
+        glitchWhirr.Stop();
 
         if (glitchType == "Teleport" || glitchType == "TeleportNoCollide")
         {
@@ -74,7 +83,7 @@ public class Glitch : MonoBehaviour
         {
             StartCoroutine(Respawn());
             return;
-        }     
+        }
 
         lighting.profile = mainProfile;
         lighting.weight = 1;
@@ -94,7 +103,7 @@ public class Glitch : MonoBehaviour
             GetComponent<Animator>().SetBool("Dead", false);
             GetComponent<HealthE>().isAlive = true;
             GetComponent<HealthE>().health = 1;
-
+            
             lighting.profile = mainProfile;
             lighting.weight = 1;
         }
