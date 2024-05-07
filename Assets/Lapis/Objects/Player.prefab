@@ -467,7 +467,7 @@ MonoBehaviour:
   glitchType: Respawn
   isActive: 0
   initialGlitchWeight: 0.25
-  teleportTime: 1.5
+  teleportTime: 1.6
   deathSound: {fileID: 7979734178811282910}
   glitchWhirr: {fileID: 6117733639687408738}
 --- !u!95 &4354597332612176637
