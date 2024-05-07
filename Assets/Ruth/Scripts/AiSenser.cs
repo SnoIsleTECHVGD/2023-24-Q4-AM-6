@@ -19,6 +19,9 @@ public class AiSenser : MonoBehaviour
     public float speed;
     public float detectDistance;
 
+    //SFX
+    public AudioSource alarmSound;
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
@@ -65,9 +68,14 @@ public class AiSenser : MonoBehaviour
             if (ray.collider && ray.collider.gameObject.CompareTag("Player"))
             {
                 if (transform.localScale.x > 0 && player.transform.position.x < transform.position.x)
+                {
                     return true;
+                }
+
                 else if (transform.localScale.x < 0 && player.transform.position.x > transform.position.x)
+                {
                     return true;
+                }
             }
         }
 

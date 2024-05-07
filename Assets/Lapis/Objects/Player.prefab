@@ -424,7 +424,7 @@ MonoBehaviour:
   isDashing: 0
   canDash: 1
   dashTime: 0.3
-  dashCooldownTime: 1
+  dashCooldownTime: 0.85
   dashSpeed: 11
   dashSound: {fileID: 4620584003833316334}
 --- !u!251 &7591006302816474534
