@@ -86,7 +86,7 @@ public class Glitch : MonoBehaviour
         }
 
         lighting.profile = mainProfile;
-        lighting.weight = 1;
+        lighting.weight = 0.7f;
     }
 
     // Custom Effects

@@ -31,7 +31,7 @@ public class FadeInLighting : MonoBehaviour
         mainProfile = volume.profile;
 
         volume.profile = titleProfile;
-        volume.weight = 1;
+        volume.weight = 0.7f;
 
         if (glitchWhirr)
             glitchWhirr.Play();
@@ -55,7 +55,7 @@ public class FadeInLighting : MonoBehaviour
         {
             volume.weight += (Time.deltaTime * fadeBackSpeed);
 
-            if (volume.weight >= 1)
+            if (volume.weight >= 0.7f)
             {
                 isDoneFadingBack = true;
 

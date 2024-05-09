@@ -18747,6 +18747,10 @@ PrefabInstance:
       value: 141.74
       objectReference: {fileID: 0}
     - target: {fileID: 7691960480290964997, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
+      propertyPath: weight
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691960480290964997, guid: aff071cd6fb1188409d069877dd4c663, type: 3}
       propertyPath: sharedProfile
       value: 
       objectReference: {fileID: 11400000, guid: 425c4de90cf71784a9356c185e6fed6f, type: 2}
